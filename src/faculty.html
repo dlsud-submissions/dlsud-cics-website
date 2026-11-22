@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#17091d" />
+    <meta
+      name="description"
+      content="Meet the faculty, administrative staff, and research laboratories of the College of Information and Computer Studies at De La Salle University-Dasmariñas."
+    />
+    <title>Faculty &amp; Staff | DLSU-D CICS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="page-faculty">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="CICS home">
+        <span class="brand-mark">C<span>/</span>S</span>
+        <span class="brand-copy">DLSU-D <b>CICS</b></span>
+      </a>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Open navigation"
+      >
+        <span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="about.html">About us</a>
+        <a href="programs.html">Programs</a>
+        <a class="active-nav" href="faculty.html" aria-current="page"
+          >Faculty &amp; Staff</a
+        >
+        <a href="student-services.html">Student Services</a>
+        <a href="index.html#updates">Campus life</a>
+        <a href="contact.html">Contact</a>
+        <a class="nav-apply" href="contact.html"
+          >Reach the college <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- ============ HERO ============ -->
+      <section class="faculty-hero" id="top" aria-labelledby="faculty-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="faculty-hero-copy reveal">
+          <p class="eyebrow">
+            <span class="status-dot"></span> 04 — FACULTY &amp; STAFF // DLSU-D
+            CICS
+          </p>
+          <h1 id="faculty-title">
+            Meet the<br /><span>academic team</span
+            ><span class="period">.</span>
+          </h1>
+          <p class="faculty-hero-desc">
+            The educators, researchers, and staff who guide students from first
+            line of code to final defense. Browse the directory, learn who keeps
+            the college running, and find the laboratories where research
+            happens.
+          </p>
+          <nav class="faculty-jumpnav" aria-label="On this page">
+            <a href="#directory"><span>01</span>Faculty directory</a>
+            <a href="#staff"><span>02</span>Administrative staff</a>
+            <a href="#research"><span>03</span>Research &amp; labs</a>
+          </nav>
+        </div>
+
+        <aside class="faculty-terminal reveal" aria-label="Directory overview">
+          <div class="terminal-bar">
+            <span class="terminal-lights"><i></i><i></i><i></i></span>
+            <span>cics://faculty-index</span>
+          </div>
+          <div class="terminal-body">
+            <p><span>&gt;</span> list --all</p>
+            <p><b>3</b><span>directory sections</span></p>
+            <p><b>4</b><span>research labs</span></p>
+            <p><b>5</b><span>fields of expertise</span></p>
+          </div>
+        </aside>
+      </section>
+
+      <!-- ============ 01 FACULTY DIRECTORY ============ -->
+      <section
+        class="directory section-pad"
+        id="directory"
+        aria-labelledby="directory-title"
+      >
+        <div class="section-kicker reveal">
+          <span>01 — FACULTY DIRECTORY</span><span class="kicker-rule"></span
+          ><span>MEET THE MENTORS</span>
+        </div>
+        <div class="section-heading reveal">
+          <h2 id="directory-title">
+            People who<br /><span>teach &amp; discover.</span>
+          </h2>
+          <p>
+            Each profile lists position, field of expertise, a short bio, and
+            research interests. Use search or filters to find a specialist.
+          </p>
+        </div>
+
+        <div class="directory-tools reveal">
+          <div class="directory-search">
+            <label for="faculty-search">Search faculty</label>
+            <input
+              id="faculty-search"
+              type="search"
+              placeholder="Name, position, or research interest"
+              autocomplete="off"
+            />
+          </div>
+          <div
+            class="filter-chips"
+            role="group"
+            aria-label="Filter by field of expertise"
+          >
+            <button class="chip is-active" type="button" data-filter="all">
+              All
+            </button>
+            <button class="chip" type="button" data-filter="software">
+              Software &amp; Systems
+            </button>
+            <button class="chip" type="button" data-filter="networks">
+              Networks &amp; Security
+            </button>
+            <button class="chip" type="button" data-filter="data">
+              Data &amp; AI
+            </button>
+            <button class="chip" type="button" data-filter="games">
+              Games &amp; Multimedia
+            </button>
+            <button class="chip" type="button" data-filter="theory">
+              CS Theory
+            </button>
+          </div>
+          <p class="directory-count" role="status" aria-live="polite">
+            Showing <b id="faculty-count">6</b> of 6 faculty
+          </p>
+        </div>
+
+        <div class="faculty-grid">
+          <article
+            class="faculty-card reveal"
+            data-field="software"
+            style="--i: 0"
+          >
+            <div class="faculty-photo" aria-label="Photo placeholder">
+              <svg
+                viewBox="0 0 16 16"
+                shape-rendering="crispEdges"
+                aria-hidden="true"
+              >
+                <rect x="5" y="2" width="6" height="1" />
+                <rect x="4" y="3" width="8" height="5" />
+                <rect x="5" y="8" width="6" height="1" />
+                <rect x="3" y="10" width="10" height="1" />
+                <rect x="2" y="11" width="12" height="5" />
+              </svg>
+              <span class="photo-tag">PHOTO / 01</span>
+            </div>
+            <div class="faculty-info">
+              <span class="faculty-field">SOFTWARE &amp; SYSTEMS</span>
+              <h3 class="faculty-name">[Name Surname], PhD</h3>
+              <p class="faculty-position">Professor · Program Chair, BSIT</p>
+              <p class="faculty-expertise">
+                <b>Expertise:</b> Software engineering, systems analysis
+              </p>
+              <details class="faculty-more">
+                <summary>Short bio &amp; research interests</summary>
+                <p>
+                  [Placeholder] A two- to three-sentence biography covering
+                  education, teaching focus, and professional experience.
+                </p>
+                <ul class="interest-tags">
+                  <li>[Research interest]</li>
+                  <li>[Research interest]</li>
+                  <li>[Research interest]</li>
+                </ul>
+              </details>
+            </div>
+          </article>
+
+          <article
+            class="faculty-card reveal"
+            data-field="theory data"
+            style="--i: 1"
+          >
+            <div class="faculty-photo" aria-label="Photo placeholder">
+              <svg
+                viewBox="0 0 16 16"
+                shape-rendering="crispEdges"
+                aria-hidden="true"
+              >
+                <rect x="5" y="2" width="6" height="1" />
+                <rect x="4" y="3" width="8" height="5" />
+                <rect x="5" y="8" width="6" height="1" />
+                <rect x="3" y="10" width="10" height="1" />
+                <rect x="2" y="11" width="12" height="5" />
+              </svg>
+              <span class="photo-tag">PHOTO / 02</span>
+            </div>
+            <div class="faculty-info">
+              <span class="faculty-field">CS THEORY · DATA &amp; AI</span>
+              <h3 class="faculty-name">[Name Surname], PhD</h3>
+              <p class="faculty-position">
+                Associate Professor · Program Chair, BSCS
+              </p>
+              <p class="faculty-expertise">
+                <b>Expertise:</b> Algorithms, machine learning
+              </p>
+              <details class="faculty-more">
+                <summary>Short bio &amp; research interests</summary>
+                <p>
+                  [Placeholder] A two- to three-sentence biography covering
+                  education, teaching focus, and professional experience.
+                </p>
+                <ul class="interest-tags">
+                  <li>[Research interest]</li>
+                  <li>[Research interest]</li>
+                  <li>[Research interest]</li>
+                </ul>
+              </details>
+            </div>
+          </article>
+
+          <article
+            class="faculty-card reveal"
+            data-field="networks"
+            style="--i: 2"
+          >
+            <div class="faculty-photo" aria-label="Photo placeholder">
+              <svg
+                viewBox="0 0 16 16"
+                shape-rendering="crispEdges"
+                aria-hidden="true"
+              >
+                <rect x="5" y="2" width="6" height="1" />
+                <rect x="4" y="3" width="8" height="5" />
+                <rect x="5" y="8" width="6" height="1" />
+                <rect x="3" y="10" width="10" height="1" />
+                <rect x="2" y="11" width="12" height="5" />
+              </svg>
+              <span class="photo-tag">PHOTO / 03</span>
+            </div>
+            <div class="faculty-info">
+              <span class="faculty-field">NETWORKS &amp; SECURITY</span>
+              <h3 class="faculty-name">[Name Surname], MSIT</h3>
+              <p class="faculty-position">Assistant Professor</p>
+              <p class="faculty-expertise">
+                <b>Expertise:</b> Network engineering, information assurance
+              </p>
+              <details class="faculty-more">
+                <summary>Short bio &amp; research interests</summary>
+                <p>
+                  [Placeholder] A two- to three-sentence biography covering
+                  education, teaching focus, and professional experience.
+                </p>
+                <ul class="interest-tags">
+                  <li>[Research interest]</li>
+                  <li>[Research interest]</li>
+                  <li>[Research interest]</li>
+                </ul>
+              </details>
+            </div>
+          </article>
+
+          <article
+            class="faculty-card reveal"
+            data-field="data"
+            style="--i: 3"
+          >
+            <div class="faculty-photo" aria-label="Photo placeholder">
+              <svg
+                viewBox="0 0 16 16"
+                shape-rendering="crispEdges"
+                aria-hidden="true"
+              >
+                <rect x="5" y="2" width="6" height="1" />
+                <rect x="4" y="3" width="8" height="5" />
+                <rect x="5" y="8" width="6" height="1" />
+                <rect x="3" y="10" width="10" height="1" />
+                <rect x="2" y="11" width="12" height="5" />
+              </svg>
+              <span class="photo-tag">PHOTO / 04</span>
+            </div>
+            <div class="faculty-info">
+              <span class="faculty-field">DATA &amp; AI</span>
+              <h3 class="faculty-name">[Name Surname], MS</h3>
+              <p class="faculty-position">Assistant Professor</p>
+              <p class="faculty-expertise">
+                <b>Expertise:</b> Data science, computer vision
+              </p>
+              <details class="faculty-more">
+                <summary>Short bio &amp; research interests</summary>
+                <p>
+                  [Placeholder] A two- to three-sentence biography covering
+                  education, teaching focus, and professional experience.
+                </p>
+                <ul class="interest-tags">
+                  <li>[Research interest]</li>
+                  <li>[Research interest]</li>
+                  <li>[Research interest]</li>
+                </ul>
+              </details>
+            </div>
+          </article>
+
+          <article
+            class="faculty-card reveal"
+            data-field="games software"
+            style="--i: 4"
+          >
+            <div class="faculty-photo" aria-label="Photo placeholder">
+              <svg
+                viewBox="0 0 16 16"
+                shape-rendering="crispEdges"
+                aria-hidden="true"
+              >
+                <rect x="5" y="2" width="6" height="1" />
+                <rect x="4" y="3" width="8" height="5" />
+                <rect x="5" y="8" width="6" height="1" />
+                <rect x="3" y="10" width="10" height="1" />
+                <rect x="2" y="11" width="12" height="5" />
+              </svg>
+              <span class="photo-tag">PHOTO / 05</span>
+            </div>
+            <div class="faculty-info">
+              <span class="faculty-field">GAMES · SOFTWARE</span>
+              <h3 class="faculty-name">[Name Surname], MIT</h3>
+              <p class="faculty-position">Instructor</p>
+              <p class="faculty-expertise">
+                <b>Expertise:</b> Game development, human-computer interaction
+              </p>
+              <details class="faculty-more">
+                <summary>Short bio &amp; research interests</summary>
+                <p>
+                  [Placeholder] A two- to three-sentence biography covering
+                  education, teaching focus, and professional experience.
+                </p>
+                <ul class="interest-tags">
+                  <li>[Research interest]</li>
+                  <li>[Research interest]</li>
+                  <li>[Research interest]</li>
+                </ul>
+              </details>
+            </div>
+          </article>
+
+          <article
+            class="faculty-card reveal"
+            data-field="theory"
+            style="--i: 5"
+          >
+            <div class="faculty-photo" aria-label="Photo placeholder">
+              <svg
+                viewBox="0 0 16 16"
+                shape-rendering="crispEdges"
+                aria-hidden="true"
+              >
+                <rect x="5" y="2" width="6" height="1" />
+                <rect x="4" y="3" width="8" height="5" />
+                <rect x="5" y="8" width="6" height="1" />
+                <rect x="3" y="10" width="10" height="1" />
+                <rect x="2" y="11" width="12" height="5" />
+              </svg>
+              <span class="photo-tag">PHOTO / 06</span>
+            </div>
+            <div class="faculty-info">
+              <span class="faculty-field">CS THEORY</span>
+              <h3 class="faculty-name">[Name Surname], MS</h3>
+              <p class="faculty-position">Instructor</p>
+              <p class="faculty-expertise">
+                <b>Expertise:</b> Discrete mathematics, formal languages
+              </p>
+              <details class="faculty-more">
+                <summary>Short bio &amp; research interests</summary>
+                <p>
+                  [Placeholder] A two- to three-sentence biography covering
+                  education, teaching focus, and professional experience.
+                </p>
+                <ul class="interest-tags">
+                  <li>[Research interest]</li>
+                  <li>[Research interest]</li>
+                  <li>[Research interest]</li>
+                </ul>
+              </details>
+            </div>
+          </article>
+        </div>
+
+        <p class="directory-empty" id="faculty-empty" hidden>
+          No faculty match your search. Try a different name or filter.
+        </p>
+        <p class="placeholder-note reveal">
+          <span class="pixel-mark" aria-hidden="true">*</span> Placeholder
+          entries. Replace with official faculty names, photos, and bios.
+        </p>
+      </section>
+
+      <!-- ============ 02 ADMINISTRATIVE STAFF ============ -->
+      <section
+        class="staff section-pad"
+        id="staff"
+        aria-labelledby="staff-title"
+      >
+        <div class="section-kicker reveal">
+          <span>02 — ADMINISTRATIVE STAFF</span><span class="kicker-rule"></span
+          ><span>BEHIND THE SCENES</span>
+        </div>
+        <div class="section-heading reveal">
+          <h2 id="staff-title">
+            Who keeps<br /><span>things moving.</span>
+          </h2>
+          <p>
+            Administrative and technical staff support students and faculty
+            every day. Contact the college to be routed to the right office.
+          </p>
+        </div>
+
+        <div class="staff-grid">
+          <article class="staff-card reveal" style="--i: 0">
+            <span class="staff-code">OFFICE / 01</span>
+            <h3>College Secretary</h3>
+            <p class="staff-person">[Name Surname]</p>
+            <ul>
+              <li>Manages the Dean's schedule and official correspondence.</li>
+              <li>Receives and routes student and faculty requests.</li>
+              <li>Maintains college records and announcements.</li>
+            </ul>
+          </article>
+          <article class="staff-card reveal" style="--i: 1">
+            <span class="staff-code">OFFICE / 02</span>
+            <h3>Program Office Staff</h3>
+            <p class="staff-person">[Name Surname]</p>
+            <ul>
+              <li>Assists with advising schedules and enrollment queries.</li>
+              <li>Processes course and clearance documents.</li>
+              <li>Coordinates class schedules with program chairs.</li>
+            </ul>
+          </article>
+          <article class="staff-card reveal" style="--i: 2">
+            <span class="staff-code">OFFICE / 03</span>
+            <h3>Laboratory Coordinator</h3>
+            <p class="staff-person">[Name Surname]</p>
+            <ul>
+              <li>Oversees lab schedules, access, and equipment.</li>
+              <li>Supervises laboratory technicians and student assistants.</li>
+              <li>Enforces lab policies and safety procedures.</li>
+            </ul>
+          </article>
+          <article class="staff-card reveal" style="--i: 3">
+            <span class="staff-code">OFFICE / 04</span>
+            <h3>OJT &amp; Industry Coordinator</h3>
+            <p class="staff-person">[Name Surname]</p>
+            <ul>
+              <li>Maintains partner companies and placement options.</li>
+              <li>Reviews OJT documents and monitors student progress.</li>
+              <li>Collects supervisor feedback and final reports.</li>
+            </ul>
+          </article>
+          <article class="staff-card reveal" style="--i: 4">
+            <span class="staff-code">OFFICE / 05</span>
+            <h3>Systems &amp; Technical Support</h3>
+            <p class="staff-person">[Name Surname]</p>
+            <ul>
+              <li>Maintains lab computers, network, and software licenses.</li>
+              <li>Responds to hardware and account issues.</li>
+              <li>Prepares equipment for classes and events.</li>
+            </ul>
+          </article>
+          <article class="staff-card reveal" style="--i: 5">
+            <span class="staff-code">OFFICE / 06</span>
+            <h3>Student Affairs Liaison</h3>
+            <p class="staff-person">[Name Surname]</p>
+            <ul>
+              <li>Supports student organizations and college events.</li>
+              <li>Coordinates with the CICS Student Government.</li>
+              <li>Refers students to university support services.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="placeholder-note reveal">
+          <span class="pixel-mark" aria-hidden="true">*</span> Roles are
+          illustrative. Replace with the college's official positions and
+          responsibilities.
+        </p>
+      </section>
+
+      <!-- ============ 03 RESEARCH GROUPS / LABS ============ -->
+      <section
+        class="research section-pad"
+        id="research"
+        aria-labelledby="research-title"
+      >
+        <div class="section-kicker reveal">
+          <span>03 — RESEARCH GROUPS &amp; LABORATORIES</span
+          ><span class="kicker-rule"></span><span>WHERE IDEAS RUN</span>
+        </div>
+        <div class="section-heading reveal">
+          <h2 id="research-title">
+            Labs built<br /><span>for discovery.</span>
+          </h2>
+          <p>
+            Research groups and laboratories where faculty and students build,
+            test, and publish.
+          </p>
+        </div>
+
+        <div class="lab-tabs reveal" role="tablist" aria-label="Laboratories">
+          <button
+            class="lab-tab is-active"
+            type="button"
+            role="tab"
+            id="tab-ai"
+            aria-selected="true"
+            aria-controls="lab-ai"
+          >
+            <span>01</span>AI Lab
+          </button>
+          <button
+            class="lab-tab"
+            type="button"
+            role="tab"
+            id="tab-net"
+            aria-selected="false"
+            aria-controls="lab-net"
+            tabindex="-1"
+          >
+            <span>02</span>Networking Lab
+          </button>
+          <button
+            class="lab-tab"
+            type="button"
+            role="tab"
+            id="tab-soft"
+            aria-selected="false"
+            aria-controls="lab-soft"
+            tabindex="-1"
+          >
+            <span>03</span>Software Dev Lab
+          </button>
+          <button
+            class="lab-tab"
+            type="button"
+            role="tab"
+            id="tab-media"
+            aria-selected="false"
+            aria-controls="lab-media"
+            tabindex="-1"
+          >
+            <span>04</span>Interactive Media Lab
+          </button>
+        </div>
+
+        <div
+          class="lab-panel is-active reveal"
+          id="lab-ai"
+          role="tabpanel"
+          aria-labelledby="tab-ai"
+        >
+          <div class="lab-panel-main">
+            <p class="lab-code">LAB / AI-VISION</p>
+            <h3>CICS Artificial Intelligence &amp; Vision Lab</h3>
+            <p>
+              [Placeholder] Describe the lab's purpose, current projects, and
+              how students can join research work.
+            </p>
+            <ul class="interest-tags">
+              <li>Machine learning</li>
+              <li>Computer vision</li>
+              <li>Natural language processing</li>
+            </ul>
+          </div>
+          <dl class="lab-meta">
+            <div><dt>Lab head</dt><dd>[Name Surname]</dd></div>
+            <div><dt>Members</dt><dd>[Faculty and student researchers]</dd></div>
+            <div><dt>Location</dt><dd>[Room / building]</dd></div>
+            <div><dt>Linked track</dt><dd>AI &amp; Data Science</dd></div>
+          </dl>
+        </div>
+
+        <div
+          class="lab-panel reveal"
+          id="lab-net"
+          role="tabpanel"
+          aria-labelledby="tab-net"
+          hidden
+        >
+          <div class="lab-panel-main">
+            <p class="lab-code">LAB / NETWORKS</p>
+            <h3>Cisco Networking Academy &amp; Cyber Sandbox</h3>
+            <p>
+              [Placeholder] Describe the lab's purpose, equipment, and
+              certification or security research activities.
+            </p>
+            <ul class="interest-tags">
+              <li>Network engineering</li>
+              <li>Cybersecurity</li>
+              <li>Digital forensics</li>
+            </ul>
+          </div>
+          <dl class="lab-meta">
+            <div><dt>Lab head</dt><dd>[Name Surname]</dd></div>
+            <div><dt>Members</dt><dd>[Faculty and student researchers]</dd></div>
+            <div><dt>Location</dt><dd>[Room / building]</dd></div>
+            <div><dt>Linked track</dt><dd>Cybersecurity &amp; Networks</dd></div>
+          </dl>
+        </div>
+
+        <div
+          class="lab-panel reveal"
+          id="lab-soft"
+          role="tabpanel"
+          aria-labelledby="tab-soft"
+          hidden
+        >
+          <div class="lab-panel-main">
+            <p class="lab-code">LAB / SOFTWARE</p>
+            <h3>CICS Cloud Systems &amp; Software Studio</h3>
+            <p>
+              [Placeholder] Describe the studio's purpose, capstone support, and
+              industry collaboration.
+            </p>
+            <ul class="interest-tags">
+              <li>Software engineering</li>
+              <li>Cloud systems</li>
+              <li>Web &amp; mobile apps</li>
+            </ul>
+          </div>
+          <dl class="lab-meta">
+            <div><dt>Lab head</dt><dd>[Name Surname]</dd></div>
+            <div><dt>Members</dt><dd>[Faculty and student researchers]</dd></div>
+            <div><dt>Location</dt><dd>[Room / building]</dd></div>
+            <div><dt>Linked track</dt><dd>Cloud &amp; Full-Stack Systems</dd></div>
+          </dl>
+        </div>
+
+        <div
+          class="lab-panel reveal"
+          id="lab-media"
+          role="tabpanel"
+          aria-labelledby="tab-media"
+          hidden
+        >
+          <div class="lab-panel-main">
+            <p class="lab-code">LAB / MEDIA</p>
+            <h3>Interactive Media &amp; Simulation Center</h3>
+            <p>
+              [Placeholder] Describe the center's purpose, projects, and
+              equipment for games, graphics, and XR.
+            </p>
+            <ul class="interest-tags">
+              <li>Game development</li>
+              <li>Computer graphics</li>
+              <li>Virtual &amp; augmented reality</li>
+            </ul>
+          </div>
+          <dl class="lab-meta">
+            <div><dt>Lab head</dt><dd>[Name Surname]</dd></div>
+            <div><dt>Members</dt><dd>[Faculty and student researchers]</dd></div>
+            <div><dt>Location</dt><dd>[Room / building]</dd></div>
+            <div><dt>Linked track</dt><dd>Game Development &amp; Simulation</dd></div>
+          </dl>
+        </div>
+
+        <p class="placeholder-note reveal">
+          <span class="pixel-mark" aria-hidden="true">*</span> Lab names follow
+          the Programs page. Replace descriptions, leads, and locations with
+          official details.
+        </p>
+      </section>
+
+      <!-- ============ CTA ============ -->
+      <section class="connect" id="connect" aria-labelledby="connect-title">
+        <div class="connect-pattern" aria-hidden="true"></div>
+        <div class="connect-content reveal">
+          <p class="eyebrow">WANT TO COLLABORATE?</p>
+          <h2 id="connect-title">Say hello<br /><span>to the team.</span></h2>
+          <p>
+            Reach out for research partnerships, advising questions, or lab
+            visits. Email the college and we'll point you to the right person.
+          </p>
+          <div class="connect-actions">
+            <a class="button button-light" href="contact.html#inquiry"
+              >Contact CICS <span aria-hidden="true">↗</span></a
+            >
+            <a class="connect-link" href="programs.html"
+              >Explore programs <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
+        <div class="connect-logo reveal">
+          <img src="../assets/logo.jpg" alt="CICS pixel-art logo" /><span
+            >TEAM ROSTER</span
+          >
+        </div>
+        <div class="connect-index" aria-hidden="true">
+          CICS<br />—<br />FACULTY<br />&amp; STAFF
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="index.html" aria-label="CICS home">
+        <span class="brand-mark">C<span>/</span>S</span>
+        <span class="brand-copy">DLSU-D <b>CICS</b></span>
+      </a>
+      <span class="footer-note"
+        >COLLEGE OF INFORMATION AND COMPUTER STUDIES</span
+      >
+      <a class="back-top" href="#top"
+        >BACK TO TOP <span aria-hidden="true">↑</span></a
+      >
+      <span class="copyright"
+        >© <span id="current-year">2025</span> DLSU-D CICS</span
+      >
+    </footer>
+  </body>
+</html>

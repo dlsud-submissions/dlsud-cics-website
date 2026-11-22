@@ -520,3 +520,81 @@ document.querySelectorAll(".btn-download-pdf").forEach((btn) => {
     triggerProspectusDownload(progName, progCode);
   });
 });
+
+// ==========================================================
+// FACULTY & STAFF INTERACTION LOGIC
+// ==========================================================
+(() => {
+  /* ---------- directory search + filter ---------- */
+  const cards = [...document.querySelectorAll(".faculty-card")];
+  const chips = [...document.querySelectorAll(".chip")];
+  const search = document.querySelector("#faculty-search");
+  const countEl = document.querySelector("#faculty-count");
+  const emptyEl = document.querySelector("#faculty-empty");
+  let activeFilter = "all";
+
+  const applyFilters = () => {
+    const query = search ? search.value.trim().toLowerCase() : "";
+    let shown = 0;
+    cards.forEach((card) => {
+      const fields = (card.dataset.field || "").split(/\s+/);
+      const matchesField =
+        activeFilter === "all" || fields.includes(activeFilter);
+      const matchesText =
+        !query || card.textContent.toLowerCase().includes(query);
+      const visible = matchesField && matchesText;
+      card.hidden = !visible;
+      if (visible) {
+        shown += 1;
+        card.classList.add("is-visible");
+      }
+    });
+    if (countEl) countEl.textContent = shown;
+    if (emptyEl) emptyEl.hidden = shown !== 0;
+  };
+
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      activeFilter = chip.dataset.filter;
+      chips.forEach((c) => c.classList.toggle("is-active", c === chip));
+      applyFilters();
+    });
+  });
+  if (search) search.addEventListener("input", applyFilters);
+
+  /* ---------- lab tabs (keyboard accessible) ---------- */
+  const tabs = [...document.querySelectorAll(".lab-tab")];
+  const panels = [...document.querySelectorAll(".lab-panel")];
+
+  const selectTab = (tab, focus = false) => {
+    tabs.forEach((t) => {
+      const selected = t === tab;
+      t.classList.toggle("is-active", selected);
+      t.setAttribute("aria-selected", String(selected));
+      t.tabIndex = selected ? 0 : -1;
+    });
+    panels.forEach((panel) => {
+      const selected = panel.id === tab.getAttribute("aria-controls");
+      panel.hidden = !selected;
+      panel.classList.toggle("is-active", selected);
+      if (selected) panel.classList.add("is-visible");
+    });
+    if (focus) tab.focus();
+  };
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => selectTab(tab));
+    tab.addEventListener("keydown", (event) => {
+      let next = null;
+      if (event.key === "ArrowRight") next = tabs[(index + 1) % tabs.length];
+      if (event.key === "ArrowLeft")
+        next = tabs[(index - 1 + tabs.length) % tabs.length];
+      if (event.key === "Home") next = tabs[0];
+      if (event.key === "End") next = tabs[tabs.length - 1];
+      if (next) {
+        event.preventDefault();
+        selectTab(next, true);
+      }
+    });
+  });
+})();
