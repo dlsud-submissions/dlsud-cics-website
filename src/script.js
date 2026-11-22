@@ -527,28 +527,62 @@ document.querySelectorAll(".btn-download-pdf").forEach((btn) => {
 (() => {
   /* ---------- directory search + filter ---------- */
   const cards = [...document.querySelectorAll(".faculty-card")];
+  const leadership = [
+    ...document.querySelectorAll(".faculty-leadership article"),
+  ];
+  const rosterRows = [...document.querySelectorAll(".faculty-table tbody tr")];
   const chips = [...document.querySelectorAll(".chip")];
   const search = document.querySelector("#faculty-search");
   const countEl = document.querySelector("#faculty-count");
   const emptyEl = document.querySelector("#faculty-empty");
+  const leadershipSection = document.querySelector(".faculty-leadership");
+  const csRoster = document.querySelector(
+    ".faculty-roster:not(.faculty-roster-it)",
+  );
+  const itRoster = document.querySelector(".faculty-roster-it");
   let activeFilter = "all";
+
+  cards.forEach((card) => {
+    card.hidden = true;
+  });
 
   const applyFilters = () => {
     const query = search ? search.value.trim().toLowerCase() : "";
     let shown = 0;
-    cards.forEach((card) => {
-      const fields = (card.dataset.field || "").split(/\s+/);
-      const matchesField =
-        activeFilter === "all" || fields.includes(activeFilter);
+
+    leadership.forEach((card) => {
+      const matchesFilter =
+        activeFilter === "all" || activeFilter === "leadership";
       const matchesText =
         !query || card.textContent.toLowerCase().includes(query);
-      const visible = matchesField && matchesText;
-      card.hidden = !visible;
-      if (visible) {
-        shown += 1;
-        card.classList.add("is-visible");
-      }
+      card.hidden = !(matchesFilter && matchesText);
+      if (!card.hidden) shown += 1;
     });
+
+    rosterRows.forEach((row) => {
+      const isItRow = Boolean(row.closest(".faculty-roster-it"));
+      const rowDepartment = isItRow ? "professional-it" : "professional-cs";
+      const matchesFilter =
+        activeFilter === "all" || activeFilter === rowDepartment;
+      const matchesText =
+        !query || row.textContent.toLowerCase().includes(query);
+      row.hidden = !(matchesFilter && matchesText);
+      if (!row.hidden) shown += 1;
+    });
+
+    if (leadershipSection) {
+      const hasVisibleLeadership = leadership.some((card) => !card.hidden);
+      leadershipSection.hidden = !hasVisibleLeadership;
+    }
+    if (csRoster) {
+      const csRows = [...csRoster.querySelectorAll("tbody tr")];
+      csRoster.hidden = !csRows.some((row) => !row.hidden);
+    }
+    if (itRoster) {
+      const itRows = [...itRoster.querySelectorAll("tbody tr")];
+      itRoster.hidden = !itRows.some((row) => !row.hidden);
+    }
+
     if (countEl) countEl.textContent = shown;
     if (emptyEl) emptyEl.hidden = shown !== 0;
   };

@@ -68,15 +68,15 @@ button {
 }
 .brand-mark {
   display: grid;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   place-content: center;
-  border: 2px solid var(--paper);
-  font: 700 14px/1 var(--mono);
-  letter-spacing: 0;
+  overflow: hidden;
 }
-.brand-mark span {
-  color: var(--pink);
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .brand-copy {
   display: grid;
@@ -2808,6 +2808,85 @@ button {
 }
 
 /* ---------- 01 DIRECTORY (light) ---------- */
+.faculty-leadership {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 34px;
+}
+.faculty-leadership article {
+  min-height: 150px;
+  padding: 20px;
+  border: 2px solid var(--ink);
+  background: #fff;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+.faculty-leadership article > span {
+  color: #8751c7;
+  font: 9px var(--mono);
+}
+.faculty-leadership h3 {
+  margin: 14px 0 8px;
+  font-size: 20px;
+  line-height: 1.2;
+}
+.faculty-leadership p {
+  margin: 0;
+  color: #66556c;
+  font: 12px var(--mono);
+}
+.faculty-roster {
+  margin-bottom: 8px;
+}
+.faculty-roster-heading {
+  margin-bottom: 14px;
+}
+.faculty-roster-department {
+  margin: 0 0 6px;
+  color: #8751c7;
+  font: 10px var(--mono);
+  text-transform: uppercase;
+}
+.faculty-roster-heading h3 {
+  margin: 0;
+  font-size: 26px;
+}
+.faculty-table-wrap {
+  overflow-x: auto;
+  border: 2px solid var(--ink);
+  background: #fff;
+}
+.faculty-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 980px;
+  font-size: 13px;
+}
+.faculty-table th,
+.faculty-table td {
+  padding: 12px 14px;
+  border-right: 1px solid rgba(23, 9, 29, 0.16);
+  border-bottom: 1px solid rgba(23, 9, 29, 0.16);
+  text-align: left;
+  vertical-align: top;
+}
+.faculty-table thead th {
+  background: var(--ink);
+  color: var(--acid);
+  font: 10px var(--mono);
+}
+.faculty-table tbody th {
+  width: 18%;
+  font-weight: 700;
+}
+.faculty-table tbody tr:nth-child(even) {
+  background: #f6edf9;
+}
+@media (max-width: 900px) {
+  .faculty-leadership {
+    grid-template-columns: 1fr;
+  }
+}
 .directory {
   background: var(--paper);
   color: var(--ink);
@@ -2921,6 +3000,11 @@ button {
     linear-gradient(90deg, rgba(239, 193, 255, 0.1) 1px, transparent 1px) 0 0 /
       14px 14px,
     #3a1748;
+}
+.faculty-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .faculty-photo svg {
   width: 50%;

@@ -23,7 +23,9 @@
 
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="CICS home">
-        <span class="brand-mark">C<span>/</span>S</span>
+        <span class="brand-mark"
+          ><img src="../assets/logo.jpg" alt="CICS logo"
+        /></span>
         <span class="brand-copy">DLSU-D <b>CICS</b></span>
       </a>
       <button
@@ -71,8 +73,6 @@
           </p>
           <nav class="faculty-jumpnav" aria-label="On this page">
             <a href="#directory"><span>01</span>Faculty directory</a>
-            <a href="#staff"><span>02</span>Administrative staff</a>
-            <a href="#research"><span>03</span>Research &amp; labs</a>
           </nav>
         </div>
 
@@ -128,46 +128,448 @@
             <button class="chip is-active" type="button" data-filter="all">
               All
             </button>
-            <button class="chip" type="button" data-filter="software">
-              Software &amp; Systems
+            <button class="chip" type="button" data-filter="leadership">
+              Leadership
             </button>
-            <button class="chip" type="button" data-filter="networks">
-              Networks &amp; Security
+            <button class="chip" type="button" data-filter="professional-cs">
+              Computer Science
             </button>
-            <button class="chip" type="button" data-filter="data">
-              Data &amp; AI
-            </button>
-            <button class="chip" type="button" data-filter="games">
-              Games &amp; Multimedia
-            </button>
-            <button class="chip" type="button" data-filter="theory">
-              CS Theory
+            <button class="chip" type="button" data-filter="professional-it">
+              Information Technology
             </button>
           </div>
           <p class="directory-count" role="status" aria-live="polite">
-            Showing <b id="faculty-count">6</b> of 6 faculty
+            Showing <b id="faculty-count">34</b> of 34 faculty
           </p>
         </div>
 
-        <div class="faculty-grid">
+        <div class="faculty-leadership reveal" aria-label="College leadership">
+          <article data-department="leadership">
+            <span>VICE DEAN</span>
+            <h3>Rolando B. Barrameda, PhD</h3>
+            <p>Local 3274</p>
+          </article>
+          <article data-department="leadership">
+            <span>CHAIR, COMPUTER SCIENCE DEPARTMENT</span>
+            <h3>Josephine T. Eduardo, MSCS</h3>
+            <p>Local 3134</p>
+          </article>
+          <article data-department="leadership">
+            <span>CHAIR, INFORMATION TECHNOLOGY DEPARTMENT</span>
+            <h3>Sherry B. Naz, MIT</h3>
+            <p>Local 3222</p>
+          </article>
+        </div>
+
+        <div class="faculty-roster reveal">
+          <div class="faculty-roster-heading">
+            <p class="faculty-roster-department">
+              Professional Education Department (Full Time)
+            </p>
+            <h3>Computer Science - Academic Qualifications</h3>
+          </div>
+          <div class="faculty-table-wrap">
+            <table
+              class="faculty-table"
+              aria-label="Professional Education Department academic qualifications"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Undergraduate Degree</th>
+                  <th scope="col">Master's Degree</th>
+                  <th scope="col">Doctoral Degree</th>
+                  <th scope="col">LinkedIn Profile</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-department="professional-cs">
+                  <th scope="row">Barrameda, Rolando B.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>Master in Information Technology</td>
+                  <td>PhD in Computer Science</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th scope="row">Eduardo, Josephine T.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>Master of Science in Computer Science</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th scope="row">Erquita, Marnelli B.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>Master in Information Technology</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th scope="row">Herradura, Tita R.</th>
+                  <td>Bachelor of Science in Computer Engineering</td>
+                  <td>
+                    Master of Computer Science, De La Salle University-Manila
+                  </td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th scope="row">Kamantigue, Sheryl D.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>Master in Information Technology</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th scope="row">Manaois, Jennylinde R.</th>
+                  <td>
+                    Bachelor of Science in Computer Science, De La Salle
+                    University-Dasmariñas
+                  </td>
+                  <td>Master in Information Technology, Adamson University</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th scope="row">Bancud, Jan Daenell</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th scope="row">Cabalsa, Elsie G.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th scope="row">Colocado, Erika Kyle D.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th scope="row">De Ocampo, Gerson T.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th scope="row">Lodronio, Ranielle</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th scope="row">Ong, Allen Joseph O.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th scope="row">Rollan, Joynalyn P.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <th scope="row">Zapanta, Orlando A.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="faculty-roster faculty-roster-it reveal">
+          <div class="faculty-roster-heading">
+            <p class="faculty-roster-department">
+              Professional Education Department (Full Time)
+            </p>
+            <h3>Information Technology - Academic Qualifications</h3>
+          </div>
+          <div class="faculty-table-wrap">
+            <table
+              class="faculty-table"
+              aria-label="Information Technology faculty academic qualifications"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Undergraduate Degree</th>
+                  <th scope="col">Master's Degree</th>
+                  <th scope="col">Doctoral Degree</th>
+                  <th scope="col">LinkedIn Profile</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-department="professional-it">
+                  <th scope="row">Del Rosario, Maria Gloria A.</th>
+                  <td>
+                    Bachelor of Science in Secretarial Administration Major in
+                    Computer Education
+                  </td>
+                  <td>Masters in Information Technology</td>
+                  <td>-</td>
+                  <td>
+                    <a
+                      href="https://www.linkedin.com/in/maria-gloria-del-rosario-9528b3106/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn</a
+                    >
+                  </td>
+                </tr>
+                <tr data-department="professional-it">
+                  <th scope="row">Doctor, Juanito C.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>Masters in Information Technology</td>
+                  <td>-</td>
+                  <td>
+                    <a
+                      href="https://www.linkedin.com/in/juanito-doctor-695757360/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn</a
+                    >
+                  </td>
+                </tr>
+                <tr data-department="professional-it">
+                  <th scope="row">Gatpandan, Paulino H., DIT</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>
+                    Master in Business Administration; Master of Science in
+                    Computer Science
+                  </td>
+                  <td>Doctor in Information Technology</td>
+                  <td>
+                    <a
+                      href="https://www.linkedin.com/in/paulino-gatpandan-9b6a17259/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn</a
+                    >
+                  </td>
+                </tr>
+                <tr data-department="professional-it">
+                  <th scope="row">Mayuga, Emelyn D.</th>
+                  <td>
+                    Bachelor of Science in Secretarial Administration Major in
+                    Computer Education
+                  </td>
+                  <td>
+                    Master of Arts in Education Major in Computer Aided
+                    Information
+                  </td>
+                  <td>-</td>
+                  <td>
+                    <a
+                      href="https://www.linkedin.com/in/emelyn-mayuga-aa7ab466/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn</a
+                    >
+                  </td>
+                </tr>
+                <tr data-department="professional-it">
+                  <th scope="row">Mitschek, Marivic R.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>Masters in Information Technology</td>
+                  <td>-</td>
+                  <td>
+                    <a
+                      href="https://www.linkedin.com/in/marivic-mitschek-996643a7/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn</a
+                    >
+                  </td>
+                </tr>
+                <tr data-department="professional-it">
+                  <th scope="row">Mojica, Azenith R.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>Masters in Information Technology</td>
+                  <td>-</td>
+                  <td>
+                    <a
+                      href="https://www.linkedin.com/in/azenith-mojica-130bb4147/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn</a
+                    >
+                  </td>
+                </tr>
+                <tr data-department="professional-it">
+                  <th scope="row">Naz, Sherry B.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>Masters in Information Technology</td>
+                  <td>-</td>
+                  <td>
+                    <a
+                      href="https://www.linkedin.com/in/sherry-naz-47140b208/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn</a
+                    >
+                  </td>
+                </tr>
+                <tr data-department="professional-it">
+                  <th scope="row">Pamintuan, Evangeline G.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>Masters in Information Technology</td>
+                  <td>-</td>
+                  <td>
+                    <a
+                      href="https://www.linkedin.com/in/evangeline-pamintuan-861ba258/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn</a
+                    >
+                  </td>
+                </tr>
+                <tr data-department="professional-it">
+                  <th scope="row">Rosas, Maryli F., DIT</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>Masters in Information Technology</td>
+                  <td>Doctor in Information Technology</td>
+                  <td>
+                    <a
+                      href="https://www.linkedin.com/in/maryli-rosas-33b467123/?originalSubdomain=ph"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn</a
+                    >
+                  </td>
+                </tr>
+                <tr data-department="professional-it">
+                  <th scope="row">Sanares, Roda N., DIT</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>Masters in Information Technology</td>
+                  <td>Doctor in Information Technology</td>
+                  <td>-</td>
+                </tr>
+                <tr data-department="professional-it">
+                  <th scope="row">Sermaña, Rochelle D.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>Master of Information Technology</td>
+                  <td>-</td>
+                  <td>
+                    <a
+                      href="https://www.linkedin.com/in/sermana-rochelle-3b60593b0/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn</a
+                    >
+                  </td>
+                </tr>
+                <tr data-department="professional-it">
+                  <th scope="row">Baculod, Joneil M</th>
+                  <td>Bachelor of Science in Information Technology</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>
+                    <a
+                      href="https://www.linkedin.com/in/joneil-baculod-b52399276/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn</a
+                    >
+                  </td>
+                </tr>
+                <tr data-department="professional-it">
+                  <th scope="row">Balleras, Randolph M.</th>
+                  <td>
+                    Bachelor of Science in Information Technology; Bachelor of
+                    Science in Civil Engineering
+                  </td>
+                  <td>Master of Information Technology</td>
+                  <td>-</td>
+                  <td>
+                    <a
+                      href="https://www.linkedin.com/in/randolph-balleras-27251ba/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn</a
+                    >
+                  </td>
+                </tr>
+                <tr data-department="professional-it">
+                  <th scope="row">Galingana, Cesar D.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>
+                    Diploma in Information Communication Technology (Level 7)
+                  </td>
+                  <td>-</td>
+                  <td>
+                    <a
+                      href="https://www.linkedin.com/in/cesar-galingana-042857171/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn</a
+                    >
+                  </td>
+                </tr>
+                <tr data-department="professional-it">
+                  <th scope="row">Galo, Michael C.</th>
+                  <td>Bachelor of Science in Information Technology</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>
+                    <a
+                      href="https://www.linkedin.com/in/michael-galo-350a9558/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn</a
+                    >
+                  </td>
+                </tr>
+                <tr data-department="professional-it">
+                  <th scope="row">Galve, Arnold B.</th>
+                  <td>Bachelor of Science in Computer Science</td>
+                  <td>Masters in Information Technology</td>
+                  <td>-</td>
+                  <td>
+                    <a
+                      href="https://www.linkedin.com/in/arnold-galve-184b71143/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn</a
+                    >
+                  </td>
+                </tr>
+                <tr data-department="professional-it">
+                  <th scope="row">Lina, Maria Patricia B.</th>
+                  <td>
+                    Bachelor of Science in Computer Science; Bachelor of Science
+                    in Computer Engineering
+                  </td>
+                  <td>Master in Information Technology</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="faculty-grid" hidden>
           <article
             class="faculty-card reveal"
             data-field="software"
             style="--i: 0"
           >
-            <div class="faculty-photo" aria-label="Photo placeholder">
-              <svg
-                viewBox="0 0 16 16"
-                shape-rendering="crispEdges"
-                aria-hidden="true"
-              >
-                <rect x="5" y="2" width="6" height="1" />
-                <rect x="4" y="3" width="8" height="5" />
-                <rect x="5" y="8" width="6" height="1" />
-                <rect x="3" y="10" width="10" height="1" />
-                <rect x="2" y="11" width="12" height="5" />
-              </svg>
-              <span class="photo-tag">PHOTO / 01</span>
+            <div class="faculty-photo">
+              <img src="../assets/logo.jpg" alt="CICS logo" />
             </div>
             <div class="faculty-info">
               <span class="faculty-field">SOFTWARE &amp; SYSTEMS</span>
@@ -196,19 +598,8 @@
             data-field="theory data"
             style="--i: 1"
           >
-            <div class="faculty-photo" aria-label="Photo placeholder">
-              <svg
-                viewBox="0 0 16 16"
-                shape-rendering="crispEdges"
-                aria-hidden="true"
-              >
-                <rect x="5" y="2" width="6" height="1" />
-                <rect x="4" y="3" width="8" height="5" />
-                <rect x="5" y="8" width="6" height="1" />
-                <rect x="3" y="10" width="10" height="1" />
-                <rect x="2" y="11" width="12" height="5" />
-              </svg>
-              <span class="photo-tag">PHOTO / 02</span>
+            <div class="faculty-photo">
+              <img src="../assets/logo.jpg" alt="CICS logo" />
             </div>
             <div class="faculty-info">
               <span class="faculty-field">CS THEORY · DATA &amp; AI</span>
@@ -239,19 +630,8 @@
             data-field="networks"
             style="--i: 2"
           >
-            <div class="faculty-photo" aria-label="Photo placeholder">
-              <svg
-                viewBox="0 0 16 16"
-                shape-rendering="crispEdges"
-                aria-hidden="true"
-              >
-                <rect x="5" y="2" width="6" height="1" />
-                <rect x="4" y="3" width="8" height="5" />
-                <rect x="5" y="8" width="6" height="1" />
-                <rect x="3" y="10" width="10" height="1" />
-                <rect x="2" y="11" width="12" height="5" />
-              </svg>
-              <span class="photo-tag">PHOTO / 03</span>
+            <div class="faculty-photo">
+              <img src="../assets/logo.jpg" alt="CICS logo" />
             </div>
             <div class="faculty-info">
               <span class="faculty-field">NETWORKS &amp; SECURITY</span>
@@ -275,24 +655,9 @@
             </div>
           </article>
 
-          <article
-            class="faculty-card reveal"
-            data-field="data"
-            style="--i: 3"
-          >
-            <div class="faculty-photo" aria-label="Photo placeholder">
-              <svg
-                viewBox="0 0 16 16"
-                shape-rendering="crispEdges"
-                aria-hidden="true"
-              >
-                <rect x="5" y="2" width="6" height="1" />
-                <rect x="4" y="3" width="8" height="5" />
-                <rect x="5" y="8" width="6" height="1" />
-                <rect x="3" y="10" width="10" height="1" />
-                <rect x="2" y="11" width="12" height="5" />
-              </svg>
-              <span class="photo-tag">PHOTO / 04</span>
+          <article class="faculty-card reveal" data-field="data" style="--i: 3">
+            <div class="faculty-photo">
+              <img src="../assets/logo.jpg" alt="CICS logo" />
             </div>
             <div class="faculty-info">
               <span class="faculty-field">DATA &amp; AI</span>
@@ -321,19 +686,8 @@
             data-field="games software"
             style="--i: 4"
           >
-            <div class="faculty-photo" aria-label="Photo placeholder">
-              <svg
-                viewBox="0 0 16 16"
-                shape-rendering="crispEdges"
-                aria-hidden="true"
-              >
-                <rect x="5" y="2" width="6" height="1" />
-                <rect x="4" y="3" width="8" height="5" />
-                <rect x="5" y="8" width="6" height="1" />
-                <rect x="3" y="10" width="10" height="1" />
-                <rect x="2" y="11" width="12" height="5" />
-              </svg>
-              <span class="photo-tag">PHOTO / 05</span>
+            <div class="faculty-photo">
+              <img src="../assets/logo.jpg" alt="CICS logo" />
             </div>
             <div class="faculty-info">
               <span class="faculty-field">GAMES · SOFTWARE</span>
@@ -362,19 +716,8 @@
             data-field="theory"
             style="--i: 5"
           >
-            <div class="faculty-photo" aria-label="Photo placeholder">
-              <svg
-                viewBox="0 0 16 16"
-                shape-rendering="crispEdges"
-                aria-hidden="true"
-              >
-                <rect x="5" y="2" width="6" height="1" />
-                <rect x="4" y="3" width="8" height="5" />
-                <rect x="5" y="8" width="6" height="1" />
-                <rect x="3" y="10" width="10" height="1" />
-                <rect x="2" y="11" width="12" height="5" />
-              </svg>
-              <span class="photo-tag">PHOTO / 06</span>
+            <div class="faculty-photo">
+              <img src="../assets/logo.jpg" alt="CICS logo" />
             </div>
             <div class="faculty-info">
               <span class="faculty-field">CS THEORY</span>
@@ -402,16 +745,13 @@
         <p class="directory-empty" id="faculty-empty" hidden>
           No faculty match your search. Try a different name or filter.
         </p>
-        <p class="placeholder-note reveal">
-          <span class="pixel-mark" aria-hidden="true">*</span> Placeholder
-          entries. Replace with official faculty names, photos, and bios.
-        </p>
       </section>
 
       <!-- ============ 02 ADMINISTRATIVE STAFF ============ -->
       <section
         class="staff section-pad"
         id="staff"
+        hidden
         aria-labelledby="staff-title"
       >
         <div class="section-kicker reveal">
@@ -419,9 +759,7 @@
           ><span>BEHIND THE SCENES</span>
         </div>
         <div class="section-heading reveal">
-          <h2 id="staff-title">
-            Who keeps<br /><span>things moving.</span>
-          </h2>
+          <h2 id="staff-title">Who keeps<br /><span>things moving.</span></h2>
           <p>
             Administrative and technical staff support students and faculty
             every day. Contact the college to be routed to the right office.
@@ -501,6 +839,7 @@
       <section
         class="research section-pad"
         id="research"
+        hidden
         aria-labelledby="research-title"
       >
         <div class="section-kicker reveal">
@@ -583,10 +922,22 @@
             </ul>
           </div>
           <dl class="lab-meta">
-            <div><dt>Lab head</dt><dd>[Name Surname]</dd></div>
-            <div><dt>Members</dt><dd>[Faculty and student researchers]</dd></div>
-            <div><dt>Location</dt><dd>[Room / building]</dd></div>
-            <div><dt>Linked track</dt><dd>AI &amp; Data Science</dd></div>
+            <div>
+              <dt>Lab head</dt>
+              <dd>[Name Surname]</dd>
+            </div>
+            <div>
+              <dt>Members</dt>
+              <dd>[Faculty and student researchers]</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>[Room / building]</dd>
+            </div>
+            <div>
+              <dt>Linked track</dt>
+              <dd>AI &amp; Data Science</dd>
+            </div>
           </dl>
         </div>
 
@@ -611,10 +962,22 @@
             </ul>
           </div>
           <dl class="lab-meta">
-            <div><dt>Lab head</dt><dd>[Name Surname]</dd></div>
-            <div><dt>Members</dt><dd>[Faculty and student researchers]</dd></div>
-            <div><dt>Location</dt><dd>[Room / building]</dd></div>
-            <div><dt>Linked track</dt><dd>Cybersecurity &amp; Networks</dd></div>
+            <div>
+              <dt>Lab head</dt>
+              <dd>[Name Surname]</dd>
+            </div>
+            <div>
+              <dt>Members</dt>
+              <dd>[Faculty and student researchers]</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>[Room / building]</dd>
+            </div>
+            <div>
+              <dt>Linked track</dt>
+              <dd>Cybersecurity &amp; Networks</dd>
+            </div>
           </dl>
         </div>
 
@@ -639,10 +1002,22 @@
             </ul>
           </div>
           <dl class="lab-meta">
-            <div><dt>Lab head</dt><dd>[Name Surname]</dd></div>
-            <div><dt>Members</dt><dd>[Faculty and student researchers]</dd></div>
-            <div><dt>Location</dt><dd>[Room / building]</dd></div>
-            <div><dt>Linked track</dt><dd>Cloud &amp; Full-Stack Systems</dd></div>
+            <div>
+              <dt>Lab head</dt>
+              <dd>[Name Surname]</dd>
+            </div>
+            <div>
+              <dt>Members</dt>
+              <dd>[Faculty and student researchers]</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>[Room / building]</dd>
+            </div>
+            <div>
+              <dt>Linked track</dt>
+              <dd>Cloud &amp; Full-Stack Systems</dd>
+            </div>
           </dl>
         </div>
 
@@ -667,10 +1042,22 @@
             </ul>
           </div>
           <dl class="lab-meta">
-            <div><dt>Lab head</dt><dd>[Name Surname]</dd></div>
-            <div><dt>Members</dt><dd>[Faculty and student researchers]</dd></div>
-            <div><dt>Location</dt><dd>[Room / building]</dd></div>
-            <div><dt>Linked track</dt><dd>Game Development &amp; Simulation</dd></div>
+            <div>
+              <dt>Lab head</dt>
+              <dd>[Name Surname]</dd>
+            </div>
+            <div>
+              <dt>Members</dt>
+              <dd>[Faculty and student researchers]</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>[Room / building]</dd>
+            </div>
+            <div>
+              <dt>Linked track</dt>
+              <dd>Game Development &amp; Simulation</dd>
+            </div>
           </dl>
         </div>
 
@@ -713,7 +1100,9 @@
 
     <footer class="site-footer">
       <a class="brand footer-brand" href="index.html" aria-label="CICS home">
-        <span class="brand-mark">C<span>/</span>S</span>
+        <span class="brand-mark"
+          ><img src="../assets/logo.jpg" alt="CICS logo"
+        /></span>
         <span class="brand-copy">DLSU-D <b>CICS</b></span>
       </a>
       <span class="footer-note"
