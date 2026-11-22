@@ -28,6 +28,23 @@ if (currentYearEl) {
   currentYearEl.textContent = new Date().getFullYear();
 }
 
+const inquiryForm = document.querySelector("#inquiry-form");
+if (inquiryForm) {
+  inquiryForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(inquiryForm);
+    const name = formData.get("name").toString().trim();
+    const email = formData.get("email").toString().trim();
+    const message = formData.get("message").toString().trim();
+    const subject = `CICS website inquiry from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+
+    document.querySelector("#inquiry-status").textContent =
+      "Opening your email app to send this inquiry.";
+    window.location.href = `mailto:cicssg@dlsud.edu.ph?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+}
+
 // Scroll Reveal Observer
 if ("IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(
@@ -85,28 +102,34 @@ document.querySelectorAll(".curriculum-year-tabs").forEach((tabsContainer) => {
 // 2. Sticky Subnav Active Scrollspy
 const subnavPills = document.querySelectorAll(".subnav-pill");
 if (subnavPills.length > 0) {
-  const sections = Array.from(subnavPills).map((pill) => {
-    const hash = pill.getAttribute("href");
-    return document.querySelector(hash);
-  }).filter(Boolean);
+  const sections = Array.from(subnavPills)
+    .map((pill) => {
+      const hash = pill.getAttribute("href");
+      return document.querySelector(hash);
+    })
+    .filter(Boolean);
 
-  window.addEventListener("scroll", () => {
-    const scrollPos = window.scrollY + 120;
-    sections.forEach((sec, idx) => {
-      const top = sec.offsetTop;
-      const height = sec.offsetHeight;
-      if (scrollPos >= top && scrollPos < top + height) {
-        subnavPills.forEach((p) => p.classList.remove("active"));
-        subnavPills[idx].classList.add("active");
-      }
-    });
-  }, { passive: true });
+  window.addEventListener(
+    "scroll",
+    () => {
+      const scrollPos = window.scrollY + 120;
+      sections.forEach((sec, idx) => {
+        const top = sec.offsetTop;
+        const height = sec.offsetHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+          subnavPills.forEach((p) => p.classList.remove("active"));
+          subnavPills[idx].classList.add("active");
+        }
+      });
+    },
+    { passive: true },
+  );
 }
 
 // 3. Course Syllabus Database & Modal
 const courseDatabase = {
   // IT Courses
-  "IT101": {
+  IT101: {
     code: "IT101",
     title: "Introduction to Computing",
     units: "3.0 Units (2 Lec, 3 Lab)",
@@ -116,10 +139,10 @@ const courseDatabase = {
     outcomes: [
       "Understand computer internal architecture and digital logic fundamentals.",
       "Analyze elementary problem statements and design pseudocode/flowchart solutions.",
-      "Apply computing ethics, Lasallian core values, and digital citizenship in technical contexts."
-    ]
+      "Apply computing ethics, Lasallian core values, and digital citizenship in technical contexts.",
+    ],
   },
-  "IT102": {
+  IT102: {
     code: "IT102",
     title: "Computer Programming 1",
     units: "3.0 Units (2 Lec, 3 Lab)",
@@ -129,10 +152,10 @@ const courseDatabase = {
     outcomes: [
       "Implement robust structured programs using modern compilers and syntax.",
       "Demonstrate structured decomposition of complex computational problems.",
-      "Apply automated unit testing and basic debugging techniques."
-    ]
+      "Apply automated unit testing and basic debugging techniques.",
+    ],
   },
-  "IT104": {
+  IT104: {
     code: "IT104",
     title: "Data Structures & Algorithms",
     units: "3.0 Units (2 Lec, 3 Lab)",
@@ -142,10 +165,10 @@ const courseDatabase = {
     outcomes: [
       "Evaluate algorithmic time and space complexities using Big-O notation.",
       "Design and implement non-linear hierarchical data structures.",
-      "Select optimal data structures for high-performance memory management."
-    ]
+      "Select optimal data structures for high-performance memory management.",
+    ],
   },
-  "IT201": {
+  IT201: {
     code: "IT201",
     title: "Object-Oriented Programming",
     units: "3.0 Units (2 Lec, 3 Lab)",
@@ -155,10 +178,10 @@ const courseDatabase = {
     outcomes: [
       "Architect enterprise software utilizing object-oriented principles.",
       "Employ Gang-of-Four design patterns (Singleton, Factory, Observer).",
-      "Develop graphical user interface desktop applications with event listeners."
-    ]
+      "Develop graphical user interface desktop applications with event listeners.",
+    ],
   },
-  "IT202": {
+  IT202: {
     code: "IT202",
     title: "Database Management Systems 1",
     units: "3.0 Units (2 Lec, 3 Lab)",
@@ -168,10 +191,10 @@ const courseDatabase = {
     outcomes: [
       "Normalize relational database schemas up to Boyce-Codd Normal Form.",
       "Author complex SQL queries with joins, indexing, and aggregations.",
-      "Enforce referential integrity, security, and transaction ACID properties."
-    ]
+      "Enforce referential integrity, security, and transaction ACID properties.",
+    ],
   },
-  "IT206": {
+  IT206: {
     code: "IT206",
     title: "Networking 1 (Cisco CCNA 1)",
     units: "3.0 Units (2 Lec, 3 Lab)",
@@ -181,10 +204,10 @@ const courseDatabase = {
     outcomes: [
       "Calculate VLSM and CIDR IPv4 and IPv6 subnetting schemes.",
       "Configure Cisco switches and routers via CLI interfaces.",
-      "Analyze packet captures using Wireshark for protocol troubleshooting."
-    ]
+      "Analyze packet captures using Wireshark for protocol troubleshooting.",
+    ],
   },
-  "IT302": {
+  IT302: {
     code: "IT302",
     title: "Web Systems & Technologies",
     units: "3.0 Units (2 Lec, 3 Lab)",
@@ -194,10 +217,10 @@ const courseDatabase = {
     outcomes: [
       "Build reactive, responsive single-page web applications.",
       "Develop secure RESTful API backends with JWT authentication.",
-      "Deploy full-stack web platforms to modern cloud edge hosting."
-    ]
+      "Deploy full-stack web platforms to modern cloud edge hosting.",
+    ],
   },
-  "IT305": {
+  IT305: {
     code: "IT305",
     title: "Cloud Computing & Virtualization",
     units: "3.0 Units (2 Lec, 3 Lab)",
@@ -207,10 +230,10 @@ const courseDatabase = {
     outcomes: [
       "Provision scalable cloud virtual machines, VPCs, and storage buckets.",
       "Containerize applications with Docker and multi-container Docker Compose.",
-      "Implement Continuous Integration & Continuous Deployment (CI/CD) pipelines."
-    ]
+      "Implement Continuous Integration & Continuous Deployment (CI/CD) pipelines.",
+    ],
   },
-  "IT401": {
+  IT401: {
     code: "IT401",
     title: "Capstone Project 1",
     units: "3.0 Units (3 Lec)",
@@ -220,10 +243,10 @@ const courseDatabase = {
     outcomes: [
       "Conduct rigorous user requirements gathering and software engineering modeling.",
       "Author comprehensive IEEE-compliant system design documentation.",
-      "Defend conceptual design before a faculty and industry panel."
-    ]
+      "Defend conceptual design before a faculty and industry panel.",
+    ],
   },
-  "IT405": {
+  IT405: {
     code: "IT405",
     title: "Industry Practicum / OJT (480 Hours)",
     units: "6.0 Units",
@@ -233,12 +256,12 @@ const courseDatabase = {
     outcomes: [
       "Demonstrate professional workplace ethics, leadership, and collaboration.",
       "Apply computing theories directly to production-grade enterprise projects.",
-      "Produce a technical practicum portfolio documenting accomplishments and solutions."
-    ]
+      "Produce a technical practicum portfolio documenting accomplishments and solutions.",
+    ],
   },
 
   // CS Courses
-  "CS101": {
+  CS101: {
     code: "CS101",
     title: "Discrete Structures 1",
     units: "3.0 Units (3 Lec)",
@@ -248,10 +271,10 @@ const courseDatabase = {
     outcomes: [
       "Construct formal mathematical proofs for computational claims.",
       "Model discrete computational systems using relations and partial orders.",
-      "Apply Boolean algebra to digital circuit logic simplification."
-    ]
+      "Apply Boolean algebra to digital circuit logic simplification.",
+    ],
   },
-  "CS204": {
+  CS204: {
     code: "CS204",
     title: "Design & Analysis of Algorithms",
     units: "3.0 Units (2 Lec, 3 Lab)",
@@ -261,10 +284,10 @@ const courseDatabase = {
     outcomes: [
       "Analyze amortized and worst-case complexities of intricate algorithms.",
       "Formulate optimal dynamic programming state transitions.",
-      "Prove NP-completeness reductions for combinatorial decision problems."
-    ]
+      "Prove NP-completeness reductions for combinatorial decision problems.",
+    ],
   },
-  "CS205": {
+  CS205: {
     code: "CS205",
     title: "Automata Theory & Formal Languages",
     units: "3.0 Units (3 Lec)",
@@ -274,10 +297,10 @@ const courseDatabase = {
     outcomes: [
       "Design formal grammars and finite state automata for language recognition.",
       "Differentiate the Chomsky hierarchy levels of formal languages.",
-      "Examine undecidability, the Halting Problem, and universal Turing machines."
-    ]
+      "Examine undecidability, the Halting Problem, and universal Turing machines.",
+    ],
   },
-  "CS301": {
+  CS301: {
     code: "CS301",
     title: "Intelligent Systems & Artificial Intelligence",
     units: "3.0 Units (2 Lec, 3 Lab)",
@@ -287,10 +310,10 @@ const courseDatabase = {
     outcomes: [
       "Implement adversarial and informed heuristic search algorithms.",
       "Build Bayesian networks and probabilistic inference engines.",
-      "Train supervised machine learning models using Python and Scikit-learn."
-    ]
+      "Train supervised machine learning models using Python and Scikit-learn.",
+    ],
   },
-  "CS304": {
+  CS304: {
     code: "CS304",
     title: "Machine Learning & Neural Networks",
     units: "3.0 Units (2 Lec, 3 Lab)",
@@ -300,10 +323,10 @@ const courseDatabase = {
     outcomes: [
       "Formulate gradient descent backpropagation from first mathematical principles.",
       "Develop computer vision and NLP models using PyTorch and TensorFlow.",
-      "Address overfitting, regularization, and ethical bias in trained AI models."
-    ]
+      "Address overfitting, regularization, and ethical bias in trained AI models.",
+    ],
   },
-  "CS401": {
+  CS401: {
     code: "CS401",
     title: "CS Thesis 1 (Research Proposal)",
     units: "3.0 Units (3 Lec)",
@@ -313,10 +336,10 @@ const courseDatabase = {
     outcomes: [
       "Identify high-impact research gaps in computer science literature.",
       "Formalize theoretical models or algorithmic novelties.",
-      "Present and defend oral research proposals before a thesis committee."
-    ]
+      "Present and defend oral research proposals before a thesis committee.",
+    ],
   },
-  "CS403": {
+  CS403: {
     code: "CS403",
     title: "CS Thesis 2 (Defense & Publication)",
     units: "3.0 Units (3 Lec)",
@@ -326,9 +349,9 @@ const courseDatabase = {
     outcomes: [
       "Conduct empirical experiments and statistically analyze performance benchmarks.",
       "Author publication-ready research manuscripts following IEEE formatting.",
-      "Successfully defend research contributions in an open academic colloquium."
-    ]
-  }
+      "Successfully defend research contributions in an open academic colloquium.",
+    ],
+  },
 };
 
 // Modal Elements
@@ -349,11 +372,12 @@ function openSyllabusModal(courseId) {
     outcomes: [
       "Demonstrate proficiency in core computing concepts.",
       "Develop problem-solving strategies using industry-standard tools.",
-      "Adhere to ethical and professional computing practices."
-    ]
+      "Adhere to ethical and professional computing practices.",
+    ],
   };
 
-  document.querySelector(".modal-course-code").textContent = `COURSE // ${course.code}`;
+  document.querySelector(".modal-course-code").textContent =
+    `COURSE // ${course.code}`;
   document.querySelector(".modal-course-title").textContent = course.title;
   document.querySelector(".modal-units").textContent = course.units;
   document.querySelector(".modal-prereq").textContent = course.prereq;
@@ -381,9 +405,12 @@ function closeSyllabusModal() {
 }
 
 if (modal) {
-  if (modalCloseBtn) modalCloseBtn.addEventListener("click", closeSyllabusModal);
-  if (modalBackdrop) modalBackdrop.addEventListener("click", closeSyllabusModal);
-  if (modalCloseFooter) modalCloseFooter.addEventListener("click", closeSyllabusModal);
+  if (modalCloseBtn)
+    modalCloseBtn.addEventListener("click", closeSyllabusModal);
+  if (modalBackdrop)
+    modalBackdrop.addEventListener("click", closeSyllabusModal);
+  if (modalCloseFooter)
+    modalCloseFooter.addEventListener("click", closeSyllabusModal);
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && modal.classList.contains("is-open")) {
@@ -425,7 +452,9 @@ function showToast(message) {
 }
 
 function triggerProspectusDownload(programName, programCode) {
-  showToast(`<b>[SYSTEM]</b> Preparing <b>${programCode}</b> Prospectus (AY 2024-2025)...`);
+  showToast(
+    `<b>[SYSTEM]</b> Preparing <b>${programCode}</b> Prospectus (AY 2024-2025)...`,
+  );
 
   // Generate an authentic, structured syllabus checklist file
   setTimeout(() => {
@@ -478,7 +507,9 @@ Web: https://www.dlsud.edu.ph/ | Email: cics@dlsud.edu.ph
     document.body.removeChild(downloadAnchor);
     URL.revokeObjectURL(url);
 
-    showToast(`<b>[SUCCESS]</b> Downloaded <b>DLSU-D_CICS_${programCode}_Curriculum_Prospectus.txt</b>!`);
+    showToast(
+      `<b>[SUCCESS]</b> Downloaded <b>DLSU-D_CICS_${programCode}_Curriculum_Prospectus.txt</b>!`,
+    );
   }, 900);
 }
 
@@ -489,4 +520,3 @@ document.querySelectorAll(".btn-download-pdf").forEach((btn) => {
     triggerProspectusDownload(progName, progCode);
   });
 });
-
