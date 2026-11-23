@@ -5,8 +5,8 @@
    ========================================================= */
 
 :root {
-  --violet-deep: #8751c7;
-  --plum: #24122c;
+  --violet-deep: #1f6b4a;
+  --plum: #0b4531;
   --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
   --ease-snap: cubic-bezier(0.7, 0, 0.2, 1);
 }
@@ -196,8 +196,8 @@
   justify-self: end;
   margin: 0;
   padding: 16px 16px 13px;
-  background: rgba(27, 11, 34, 0.68);
-  box-shadow: 8px 8px 0 rgba(244, 126, 174, 0.28);
+  background: rgba(6, 51, 34, 0.68);
+  box-shadow: 8px 8px 0 rgba(120, 184, 149, 0.28);
   animation: float 6s ease-in-out infinite;
 }
 @keyframes float {
@@ -208,10 +208,12 @@
 .mosaic {
   position: relative;
   aspect-ratio: 1;
-  border: 1px solid rgba(245, 236, 248, 0.5);
-  background: #2a1234;
+  border: 1px solid rgba(244, 246, 241, 0.5);
+  background: #0b4531;
 }
 .mosaic img {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
   height: 100%;
@@ -224,7 +226,7 @@
   inset: 0;
   background: repeating-linear-gradient(
     0deg,
-    rgba(18, 8, 24, 0.14) 0 1px,
+    rgba(6, 51, 34, 0.14) 0 1px,
     transparent 1px 4px
   );
   content: "";
@@ -238,6 +240,7 @@
   grid-template-rows: repeat(12, 1fr);
 }
 .mosaic-cells i {
+  z-index: 2;
   background: var(--cell, var(--violet));
   transition:
     opacity 0.35s steps(3),
@@ -270,7 +273,7 @@
   position: relative;
   height: 6px;
   flex: 1;
-  border: 1px solid rgba(245, 236, 248, 0.4);
+  border: 1px solid rgba(244, 246, 241, 0.4);
 }
 .load-bar i {
   position: absolute;
@@ -295,7 +298,7 @@
   color: var(--ink);
 }
 .profile .section-kicker {
-  color: #765a7c;
+  color: #648171;
 }
 .profile-content {
   display: grid;
@@ -319,21 +322,21 @@
 }
 .profile-copy p {
   margin: 0 0 16px;
-  color: #66556c;
+  color: #55705f;
   font-size: 14px;
   line-height: 1.8;
 }
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid rgba(23, 9, 29, 0.22);
+  border-top: 1px solid rgba(6, 51, 34, 0.22);
 }
 .stat {
   position: relative;
   display: grid;
   gap: 10px;
   padding: 28px 20px 26px 0;
-  border-right: 1px solid rgba(23, 9, 29, 0.12);
+  border-right: 1px solid rgba(6, 51, 34, 0.12);
 }
 .stat:not(:first-child) {
   padding-left: 22px;
@@ -370,7 +373,7 @@
   font-style: normal;
 }
 .stat-label {
-  color: #786981;
+  color: #6f8275;
   font: 11px var(--mono);
   text-transform: uppercase;
 }
@@ -379,7 +382,7 @@
   align-items: center;
   gap: 12px;
   margin: 26px 0 0;
-  color: #786981;
+  color: #6f8275;
   font: 10px var(--mono);
 }
 
@@ -390,7 +393,7 @@
 .purpose .section-kicker,
 .history .section-kicker,
 .structure .section-kicker {
-  color: #b6a1be;
+  color: #91a698;
 }
 .mv-grid {
   display: grid;
@@ -535,13 +538,13 @@
   transition: color 0.3s;
 }
 .value-tile:hover > span:not(.value-glyph):not(.value-idx) {
-  color: #4b3a52;
+  color: #55705f;
 }
 .value-idx {
   position: absolute;
   top: 24px;
   right: 22px;
-  color: #806b89;
+  color: #6f8275;
   font: 9px var(--mono);
 }
 
@@ -671,7 +674,7 @@
   padding: 10px;
   transform: rotate(-3deg);
   background: var(--ink);
-  box-shadow: 9px 9px 0 rgba(23, 9, 29, 0.25);
+  box-shadow: 9px 9px 0 rgba(6, 51, 34, 0.25);
   transition: transform 0.5s var(--ease-out);
 }
 .dean-portrait.reveal.is-visible {
@@ -688,11 +691,11 @@
   place-items: end center;
   overflow: hidden;
   background:
-    linear-gradient(rgba(239, 193, 255, 0.08) 1px, transparent 1px) 0 0 / 14px
+    linear-gradient(rgba(181, 211, 107, 0.08) 1px, transparent 1px) 0 0 / 14px
       14px,
-    linear-gradient(90deg, rgba(239, 193, 255, 0.08) 1px, transparent 1px) 0 0 /
+    linear-gradient(90deg, rgba(181, 211, 107, 0.08) 1px, transparent 1px) 0 0 /
       14px 14px,
-    #3a1748;
+    #0b4531;
 }
 .pixel-person {
   width: 78%;
@@ -771,7 +774,7 @@
   font-size: 16px;
 }
 .dean-sign span {
-  color: #301545;
+  color: #063322;
   font: 10px var(--mono);
 }
 
@@ -841,7 +844,7 @@
 }
 .org-tree.is-visible .org-node:hover {
   border-color: var(--acid);
-  background: #2c1535;
+  background: #063322;
   transform: translateY(-4px);
   transition-delay: 0s;
 }
@@ -905,7 +908,7 @@
   font-size: 12px;
 }
 .org-lead .org-sub {
-  color: #301545;
+  color: #063322;
 }
 .org-group b {
   font-size: 15px;
@@ -917,13 +920,13 @@
   color: var(--ink);
 }
 .recognition .section-kicker {
-  color: #765a7c;
+  color: #648171;
 }
 .recognition .section-heading h2 > span:not(.word) {
   color: var(--violet-deep);
 }
 .recognition .section-heading > p {
-  color: #66556c;
+  color: #55705f;
 }
 .badge-grid {
   display: grid;
@@ -989,16 +992,22 @@
 }
 .badge-card p {
   margin: 0;
-  color: #66556c;
+  color: #55705f;
   font-size: 13px;
   line-height: 1.7;
 }
 .partner-marquee {
   margin-top: 56px;
   overflow: hidden;
-  border-top: 1px solid rgba(23, 9, 29, 0.22);
-  border-bottom: 1px solid rgba(23, 9, 29, 0.22);
-  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  border-top: 1px solid rgba(6, 51, 34, 0.22);
+  border-bottom: 1px solid rgba(6, 51, 34, 0.22);
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
 }
 .partner-track {
   display: flex;
@@ -1015,8 +1024,8 @@
   min-width: 170px;
   height: 64px;
   place-items: center;
-  border: 1px dashed rgba(23, 9, 29, 0.35);
-  color: #786981;
+  border: 1px dashed rgba(6, 51, 34, 0.35);
+  color: #6f8275;
   font: 11px var(--mono);
   transition:
     background 0.2s,
@@ -1065,7 +1074,7 @@
     padding-left: 0;
   }
   .stat:nth-child(n + 3) {
-    border-top: 1px solid rgba(23, 9, 29, 0.12);
+    border-top: 1px solid rgba(6, 51, 34, 0.12);
   }
   .values-grid {
     grid-template-columns: 1fr;

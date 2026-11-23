@@ -22,8 +22,8 @@
   position: absolute;
   inset: 0 0 0 48%;
   background:
-    linear-gradient(135deg, transparent 22%, rgba(156, 98, 239, 0.15) 22%, rgba(156, 98, 239, 0.15) 23%, transparent 23%),
-    linear-gradient(45deg, transparent 70%, rgba(244, 126, 174, 0.13) 70%, rgba(244, 126, 174, 0.13) 71%, transparent 71%);
+    linear-gradient(135deg, transparent 22%, rgba(45, 128, 96, 0.15) 22%, rgba(45, 128, 96, 0.15) 23%, transparent 23%),
+    linear-gradient(45deg, transparent 70%, rgba(120, 184, 149, 0.13) 70%, rgba(120, 184, 149, 0.13) 71%, transparent 71%);
   content: "";
 }
 .services-hero-copy,
@@ -82,8 +82,8 @@
 .services-jumpnav a:hover span { color: var(--ink); }
 .services-terminal {
   border: 1px solid var(--line);
-  background: rgba(23, 9, 29, 0.82);
-  box-shadow: 18px 18px 0 rgba(156, 98, 239, 0.08);
+  background: rgba(6, 51, 34, 0.82);
+  box-shadow: 18px 18px 0 rgba(45, 128, 96, 0.08);
 }
 .terminal-bar {
   display: flex;
@@ -250,14 +250,14 @@
   line-height: 1.7;
 }
 .ojt-timeline {
-  border-top: 1px solid rgba(23, 9, 29, 0.35);
+  border-top: 1px solid rgba(6, 51, 34, 0.35);
 }
 .ojt-timeline article {
   display: grid;
   grid-template-columns: 50px 1fr;
   align-items: center;
   min-height: 92px;
-  border-bottom: 1px solid rgba(23, 9, 29, 0.35);
+  border-bottom: 1px solid rgba(6, 51, 34, 0.35);
 }
 .ojt-timeline article > span { font: 10px var(--mono); }
 .ojt-timeline article b { font-size: 16px; }
@@ -332,14 +332,14 @@
 .aid-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid rgba(23, 9, 29, 0.35);
-  border-left: 1px solid rgba(23, 9, 29, 0.35);
+  border-top: 1px solid rgba(6, 51, 34, 0.35);
+  border-left: 1px solid rgba(6, 51, 34, 0.35);
 }
 .aid-grid article {
   min-height: 240px;
   padding: 20px;
-  border-right: 1px solid rgba(23, 9, 29, 0.35);
-  border-bottom: 1px solid rgba(23, 9, 29, 0.35);
+  border-right: 1px solid rgba(6, 51, 34, 0.35);
+  border-bottom: 1px solid rgba(6, 51, 34, 0.35);
 }
 .aid-grid article span { font: 9px var(--mono); }
 .aid-grid article h3 { margin: 100px 0 8px; font-size: 15px; }
