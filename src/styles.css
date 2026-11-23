@@ -1,13 +1,13 @@
 :root {
   color-scheme: dark;
-  --ink: #17091d;
-  --ink-soft: #211027;
-  --paper: #f5ecf8;
-  --muted: #c1adc9;
-  --violet: #9c62ef;
-  --pink: #f47eae;
-  --acid: #d3ff7a;
-  --line: rgba(245, 236, 248, 0.2);
+  --ink: #063322;
+  --ink-soft: #0b4531;
+  --paper: #f4f6f1;
+  --muted: #b9c9bd;
+  --violet: #2d8060;
+  --pink: #78b895;
+  --acid: #b5d36b;
+  --line: rgba(244, 246, 241, 0.2);
   --mono: "DM Mono", "Courier New", monospace;
   --display: "Space Grotesk", "Trebuchet MS", sans-serif;
 }
@@ -22,6 +22,17 @@ html {
 body {
   margin: 0;
   background: var(--ink);
+}
+body::before {
+  display: block;
+  width: 100%;
+  padding: 8px 6.2vw;
+  border-bottom: 1px solid rgba(244, 246, 241, 0.16);
+  background: #b5d36b;
+  color: #063322;
+  content: "Academy of Continuing Education — accepting applicants for Second Semester, SY 2026–2027";
+  text-align: center;
+  font: 500 11px var(--mono);
   color: var(--paper);
   font-family: var(--display);
   -webkit-font-smoothing: antialiased;
@@ -29,6 +40,14 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+.announcement-bar {
+  padding: 8px 6.2vw;
+  border-bottom: 1px solid rgba(244, 246, 241, 0.16);
+  background: #b5d36b;
+  color: #063322;
+  text-align: center;
+  font: 500 11px var(--mono);
 }
 button {
   font: inherit;
@@ -58,7 +77,7 @@ button {
   justify-content: space-between;
   min-height: 76px;
   padding: 0 6.2vw;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 0;
   background: var(--ink);
 }
 .brand {
@@ -68,15 +87,24 @@ button {
 }
 .brand-mark {
   display: grid;
-  width: 44px;
-  height: 44px;
-  place-content: center;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  place-items: center;
   overflow: hidden;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 .brand-mark img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  margin: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  background: #fff;
 }
 .brand-copy {
   display: grid;
@@ -144,19 +172,19 @@ button {
     linear-gradient(
       122deg,
       transparent 4%,
-      rgba(119, 61, 147, 0.19) 4%,
-      rgba(119, 61, 147, 0.19) 5%,
+      rgba(31, 107, 74, 0.19) 4%,
+      rgba(31, 107, 74, 0.19) 5%,
       transparent 5%,
       transparent 72%,
-      rgba(244, 126, 174, 0.16) 72%,
-      rgba(244, 126, 174, 0.16) 73%,
+      rgba(120, 184, 149, 0.16) 72%,
+      rgba(120, 184, 149, 0.16) 73%,
       transparent 73%
     ),
     linear-gradient(
       35deg,
       transparent 48%,
-      rgba(156, 98, 239, 0.13) 48%,
-      rgba(156, 98, 239, 0.13) 49%,
+      rgba(45, 128, 96, 0.13) 48%,
+      rgba(45, 128, 96, 0.13) 49%,
       transparent 49%
     );
   content: "";
@@ -167,8 +195,8 @@ button {
   inset: 0;
   opacity: 0.16;
   background-image:
-    linear-gradient(rgba(196, 159, 221, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(196, 159, 221, 0.15) 1px, transparent 1px);
+    linear-gradient(rgba(185, 201, 189, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(185, 201, 189, 0.15) 1px, transparent 1px);
   background-size: 46px 46px;
   mask-image: linear-gradient(90deg, transparent 12%, #000 100%);
   pointer-events: none;
@@ -257,7 +285,7 @@ button {
   box-shadow: 4px 4px 0 var(--pink);
 }
 .button-primary:hover {
-  background: #ad7aff;
+  background: #78b895;
 }
 .text-link {
   display: inline-flex;
@@ -269,7 +297,7 @@ button {
 }
 .hero-index {
   margin: 72px 0 0;
-  color: #806b89;
+  color: #6f8275;
   font-size: 9px;
 }
 .hero-index span {
@@ -280,8 +308,8 @@ button {
   width: min(100%, 430px);
   justify-self: end;
   padding: 16px 16px 13px;
-  background: rgba(27, 11, 34, 0.68);
-  box-shadow: 8px 8px 0 rgba(156, 98, 239, 0.28);
+  background: rgba(6, 51, 34, 0.68);
+  box-shadow: 8px 8px 0 rgba(45, 128, 96, 0.28);
 }
 .art-label,
 .art-caption {
@@ -299,15 +327,15 @@ button {
   width: 100%;
   aspect-ratio: 1.04 / 1;
   overflow: hidden;
-  border: 1px solid rgba(245, 236, 248, 0.5);
-  background: #2a1234;
+  border: 1px solid rgba(244, 246, 241, 0.5);
+  background: #0b4531;
 }
 .logo-frame::after {
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(
     0deg,
-    rgba(18, 8, 24, 0.12) 0 1px,
+    rgba(6, 51, 34, 0.12) 0 1px,
     transparent 1px 4px
   );
   content: "";
@@ -320,6 +348,39 @@ button {
   object-fit: cover;
   object-position: center 45%;
   image-rendering: pixelated;
+}
+.logo-pixels {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+}
+.logo-pixels i {
+  background: var(--pixel, var(--violet));
+  transition:
+    opacity 0.35s steps(3),
+    transform 0.35s steps(3);
+  transition-delay: var(--d, 0s);
+}
+.logo-frame.is-resolved .logo-pixels i {
+  opacity: 0;
+  transform: scale(0.4);
+}
+.logo-frame.is-resolved .logo-pixels i.blink {
+  animation: logo-pixel-blink 0.9s steps(2) both;
+}
+@keyframes logo-pixel-blink {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 .frame-corner {
   position: absolute;
@@ -359,22 +420,7 @@ button {
   flex: 1;
   background: var(--pink);
 }
-.pixel-stamp {
-  position: absolute;
-  top: 27%;
-  right: -33px;
-  display: grid;
-  width: 60px;
-  height: 60px;
-  place-content: center;
-  transform: rotate(7deg);
-  border: 1px solid var(--ink);
-  background: var(--acid);
-  color: var(--ink);
-  text-align: center;
-  font: 700 9px/1.3 var(--mono);
-  box-shadow: 3px 3px 0 var(--ink);
-}
+
 .hero-bottom {
   position: absolute;
   right: 6.2vw;
@@ -382,7 +428,7 @@ button {
   left: 6.2vw;
   display: flex;
   justify-content: space-between;
-  color: #806b89;
+  color: #6f8275;
   font-size: 8px;
 }
 
@@ -401,7 +447,7 @@ button {
   font: 500 10px var(--mono);
 }
 .ticker-track i {
-  color: #6d36b1;
+  color: #1f6b4a;
   font-style: normal;
   font-size: 15px;
 }
@@ -422,7 +468,7 @@ button {
   display: flex;
   align-items: center;
   gap: 16px;
-  color: #765a7c;
+  color: #648171;
   font-size: 9px;
 }
 .kicker-rule {
@@ -450,7 +496,7 @@ button {
 }
 .intro h2 span,
 .section-heading h2 span {
-  color: #8751c7;
+  color: #1f6b4a;
 }
 .intro-aside {
   max-width: 370px;
@@ -460,7 +506,7 @@ button {
 .section-heading > p,
 .updates-heading > p {
   margin: 0 0 22px;
-  color: #66556c;
+  color: #55705f;
   font-size: 14px;
   line-height: 1.8;
 }
@@ -468,7 +514,7 @@ button {
   color: var(--ink);
 }
 .intro-aside .text-link:hover {
-  color: #8751c7;
+  color: #1f6b4a;
 }
 .value-strip {
   display: grid;
@@ -476,7 +522,7 @@ button {
   gap: 20px;
   align-items: center;
   padding-top: 22px;
-  border-top: 1px solid rgba(23, 9, 29, 0.22);
+  border-top: 1px solid rgba(6, 51, 34, 0.22);
 }
 .value-strip > div:not(.value-pixel) {
   display: grid;
@@ -487,14 +533,14 @@ button {
 .value-number {
   grid-row: span 2;
   align-self: start;
-  color: #8751c7;
+  color: #1f6b4a;
   font: 10px var(--mono);
 }
 .value-strip b {
   font-size: 14px;
 }
 .value-strip > div > span:last-child {
-  color: #786981;
+  color: #6f8275;
   font-size: 11px;
 }
 .value-pixel {
@@ -506,7 +552,7 @@ button {
 .value-pixel span {
   width: 12px;
   height: 12px;
-  background: #8751c7;
+  background: #1f6b4a;
 }
 .value-pixel span:nth-child(2n) {
   background: var(--pink);
@@ -520,7 +566,7 @@ button {
 }
 .programs .section-kicker,
 .updates .section-kicker {
-  color: #b6a1be;
+  color: #91a698;
 }
 .section-heading {
   display: flex;
@@ -556,12 +602,12 @@ button {
 .program-card:hover {
   padding-right: 23px;
   padding-left: 23px;
-  background: rgba(156, 98, 239, 0.1);
+  background: rgba(45, 128, 96, 0.1);
 }
 .program-code {
   align-self: start;
   padding-top: 13px;
-  color: #9b829f;
+  color: #91a698;
   font-size: 9px;
 }
 .program-initials {
@@ -597,7 +643,7 @@ button {
   align-items: center;
   gap: 12px;
   margin: 25px 0 0;
-  color: #ae9bb7;
+  color: #91a698;
   font-size: 10px;
   line-height: 1.7;
 }
@@ -612,7 +658,7 @@ button {
 }
 
 .updates {
-  background: #24122c;
+  background: #0b4531;
 }
 .updates-heading {
   display: flex;
@@ -646,10 +692,10 @@ button {
 }
 .art-terminal {
   justify-items: start;
-  background: #521d68;
+  background: #0b4531;
   background-image:
-    linear-gradient(rgba(239, 193, 255, 0.09) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(239, 193, 255, 0.09) 1px, transparent 1px);
+    linear-gradient(rgba(181, 211, 107, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(181, 211, 107, 0.09) 1px, transparent 1px);
   background-size: 18px 18px;
 }
 .terminal-bar {
@@ -661,7 +707,7 @@ button {
   align-items: center;
   gap: 5px;
   padding: 7px;
-  background: #24122c;
+  background: #0b4531;
 }
 .terminal-bar i {
   width: 5px;
@@ -701,7 +747,7 @@ button {
   display: block;
   width: 115px;
   height: 3px;
-  background: rgba(245, 236, 248, 0.48);
+  background: rgba(244, 246, 241, 0.48);
 }
 .terminal-lines i:nth-child(2) {
   width: 83px;
@@ -725,7 +771,7 @@ button {
   font: 700 8px/1.2 var(--mono);
 }
 .art-orbit {
-  background: #9c62ef;
+  background: #2d8060;
 }
 .orbit-ring {
   position: absolute;
@@ -851,7 +897,7 @@ button {
 .connect-content > p:not(.eyebrow) {
   max-width: 410px;
   margin: 20px 0 25px;
-  color: #301545;
+  color: #063322;
   font-size: 13px;
   line-height: 1.7;
 }
@@ -860,7 +906,7 @@ button {
   box-shadow: 4px 4px 0 var(--ink);
 }
 .button-light:hover {
-  background: #e5ffac;
+  background: #d9eaa1;
 }
 .connect-link {
   color: var(--ink);
@@ -876,7 +922,7 @@ button {
   padding: 10px;
   transform: rotate(4deg);
   background: var(--ink);
-  box-shadow: 9px 9px 0 rgba(23, 9, 29, 0.25);
+  box-shadow: 9px 9px 0 rgba(6, 51, 34, 0.25);
 }
 .connect-logo img {
   display: block;
@@ -896,7 +942,7 @@ button {
   position: absolute;
   right: 3vw;
   bottom: 24px;
-  color: rgba(23, 9, 29, 0.6);
+  color: rgba(6, 51, 34, 0.6);
   text-align: right;
   font-size: 8px;
   line-height: 1.5;
@@ -909,16 +955,21 @@ button {
   gap: 25px;
   min-height: 85px;
   padding: 18px 6.2vw;
-  color: #a28ea9;
+  color: #91a698;
   font-size: 8px;
 }
 .footer-brand {
   color: var(--paper);
 }
 .footer-brand .brand-mark {
-  width: 31px;
-  height: 31px;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
   font-size: 12px;
+}
+.footer-brand .brand-mark img {
+  width: 100%;
+  height: 100%;
 }
 .footer-brand .brand-copy {
   font-size: 8px;
@@ -989,15 +1040,15 @@ button {
     linear-gradient(
       135deg,
       transparent 15%,
-      rgba(156, 98, 239, 0.12) 15%,
-      rgba(156, 98, 239, 0.12) 16%,
+      rgba(45, 128, 96, 0.12) 15%,
+      rgba(45, 128, 96, 0.12) 16%,
       transparent 16%
     ),
     linear-gradient(
       45deg,
       transparent 65%,
-      rgba(244, 126, 174, 0.14) 65%,
-      rgba(244, 126, 174, 0.14) 66%,
+      rgba(120, 184, 149, 0.14) 65%,
+      rgba(120, 184, 149, 0.14) 66%,
       transparent 66%
     );
   content: "";
@@ -1008,8 +1059,8 @@ button {
   inset: 0;
   opacity: 0.14;
   background-image:
-    linear-gradient(rgba(196, 159, 221, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(196, 159, 221, 0.15) 1px, transparent 1px);
+    linear-gradient(rgba(185, 201, 189, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(185, 201, 189, 0.15) 1px, transparent 1px);
   background-size: 38px 38px;
   pointer-events: none;
 }
@@ -1048,9 +1099,9 @@ button {
   width: 100%;
   max-width: 440px;
   justify-self: end;
-  background: rgba(27, 11, 34, 0.85);
-  border: 1px solid rgba(245, 236, 248, 0.35);
-  box-shadow: 8px 8px 0 rgba(156, 98, 239, 0.3);
+  background: rgba(6, 51, 34, 0.85);
+  border: 1px solid rgba(244, 246, 241, 0.35);
+  box-shadow: 8px 8px 0 rgba(45, 128, 96, 0.3);
   padding: 18px 20px 20px;
 }
 .stats-panel-bar {
@@ -1087,7 +1138,7 @@ button {
   padding: 18px 0 14px;
 }
 .stat-box {
-  background: rgba(33, 16, 39, 0.6);
+  background: rgba(11, 69, 49, 0.6);
   border-left: 2px solid var(--violet);
   padding: 10px 12px;
 }
@@ -1098,7 +1149,7 @@ button {
   border-left-color: var(--acid);
 }
 .stat-box:nth-child(4) {
-  border-left-color: #6d36b1;
+  border-left-color: #1f6b4a;
 }
 .stat-box-val {
   font: 700 24px/1.1 var(--mono);
@@ -1128,7 +1179,7 @@ button {
   position: sticky;
   top: 0;
   z-index: 15;
-  background: rgba(23, 9, 29, 0.94);
+  background: rgba(6, 51, 34, 0.94);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
   padding: 0 10vw 0 11vw;
@@ -1158,7 +1209,7 @@ button {
   padding: 6px 12px;
   font: 10px var(--mono);
   color: var(--muted);
-  border: 1px solid rgba(245, 236, 248, 0.15);
+  border: 1px solid rgba(244, 246, 241, 0.15);
   background: transparent;
   transition: all 0.2s ease;
   cursor: pointer;
@@ -1206,7 +1257,7 @@ button {
 .degree-hero-banner {
   padding: 36px 40px 28px;
   border-bottom: 1px solid var(--line);
-  background: rgba(23, 9, 29, 0.5);
+  background: rgba(6, 51, 34, 0.5);
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 24px;
@@ -1258,7 +1309,7 @@ button {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border-bottom: 1px solid var(--line);
-  background: rgba(33, 16, 39, 0.4);
+  background: rgba(11, 69, 49, 0.4);
 }
 .highlight-cell {
   padding: 16px 22px;
@@ -1316,7 +1367,7 @@ button {
 }
 .year-tab-btn {
   padding: 8px 16px;
-  background: rgba(245, 236, 248, 0.05);
+  background: rgba(244, 246, 241, 0.05);
   border: 1px solid var(--line);
   color: var(--muted);
   font: 11px var(--mono);
@@ -1342,7 +1393,7 @@ button {
   gap: 24px;
 }
 .semester-col {
-  background: rgba(23, 9, 29, 0.45);
+  background: rgba(6, 51, 34, 0.45);
   border: 1px solid var(--line);
   padding: 20px;
 }
@@ -1372,7 +1423,7 @@ button {
   gap: 12px;
   align-items: center;
   padding: 8px 10px;
-  background: rgba(33, 16, 39, 0.5);
+  background: rgba(11, 69, 49, 0.5);
   border-left: 2px solid transparent;
   transition:
     background 0.15s,
@@ -1381,7 +1432,7 @@ button {
   cursor: pointer;
 }
 .course-row:hover {
-  background: rgba(156, 98, 239, 0.14);
+  background: rgba(45, 128, 96, 0.14);
   border-left-color: var(--acid);
   transform: translateX(2px);
 }
@@ -1430,7 +1481,7 @@ button {
 }
 .career-card {
   padding: 16px;
-  background: rgba(23, 9, 29, 0.6);
+  background: rgba(6, 51, 34, 0.6);
   border: 1px solid var(--line);
   transition:
     border-color 0.2s,
@@ -1467,14 +1518,14 @@ button {
 .skill-tag {
   font: 8px var(--mono);
   padding: 2px 5px;
-  background: rgba(156, 98, 239, 0.15);
+  background: rgba(45, 128, 96, 0.15);
   color: var(--paper);
-  border: 1px solid rgba(156, 98, 239, 0.3);
+  border: 1px solid rgba(45, 128, 96, 0.3);
 }
 
 /* Specializations / Tracks Section */
 .specializations-section {
-  background: #1e0d26;
+  background: #0b4531;
   position: relative;
 }
 .tracks-grid {
@@ -1514,7 +1565,7 @@ button {
   background: var(--acid);
 }
 .track-card:nth-child(4)::before {
-  background: #ad7aff;
+  background: #78b895;
 }
 
 .track-kicker {
@@ -1553,7 +1604,7 @@ button {
 .tech-pill {
   padding: 3px 8px;
   font: 9px var(--mono);
-  background: rgba(33, 16, 39, 0.9);
+  background: rgba(11, 69, 49, 0.9);
   border: 1px solid var(--line);
   color: var(--paper);
 }
@@ -1566,8 +1617,8 @@ button {
   align-items: center;
   gap: 8px;
   padding: 10px 12px;
-  background: rgba(156, 98, 239, 0.08);
-  border: 1px dashed rgba(156, 98, 239, 0.35);
+  background: rgba(45, 128, 96, 0.08);
+  border: 1px dashed rgba(45, 128, 96, 0.35);
   font: 9px var(--mono);
   color: var(--muted);
 }
@@ -1581,12 +1632,12 @@ button {
   color: var(--ink);
 }
 .graduate-section .section-kicker {
-  color: #765a7c;
+  color: #648171;
 }
 .graduate-card {
   margin-top: 50px;
   background: #fff;
-  border: 1px solid rgba(23, 9, 29, 0.18);
+  border: 1px solid rgba(6, 51, 34, 0.18);
   box-shadow: 10px 10px 0 var(--ink);
   padding: 44px 44px 40px;
   position: relative;
@@ -1611,13 +1662,13 @@ button {
   color: var(--ink);
 }
 .graduate-title span {
-  color: #8751c7;
+  color: #1f6b4a;
 }
 .graduate-intro {
   margin: 0 0 28px;
   max-width: 760px;
   font-size: 15px;
-  color: #55445b;
+  color: #55705f;
   line-height: 1.8;
 }
 .graduate-pillars-grid {
@@ -1626,26 +1677,26 @@ button {
   gap: 16px;
   margin-bottom: 32px;
   padding-bottom: 28px;
-  border-bottom: 1px solid rgba(23, 9, 29, 0.15);
+  border-bottom: 1px solid rgba(6, 51, 34, 0.15);
 }
 .pillar-card {
   padding: 16px;
-  background: #f8f2fa;
-  border-left: 3px solid #8751c7;
+  background: #f4f6f1;
+  border-left: 3px solid #1f6b4a;
 }
 .pillar-card:nth-child(2) {
   border-left-color: var(--pink);
 }
 .pillar-card:nth-child(3) {
-  border-left-color: #211027;
+  border-left-color: #0b4531;
 }
 .pillar-card:nth-child(4) {
-  border-left-color: #521d68;
+  border-left-color: #0b4531;
 }
 .pillar-num {
   display: block;
   font: 10px var(--mono);
-  color: #8751c7;
+  color: #1f6b4a;
   margin-bottom: 4px;
 }
 .pillar-card b {
@@ -1657,7 +1708,7 @@ button {
 .pillar-card p {
   margin: 0;
   font-size: 11px;
-  color: #66556c;
+  color: #55705f;
   line-height: 1.5;
 }
 .graduate-footer-strip {
@@ -1672,7 +1723,7 @@ button {
   flex-wrap: wrap;
   gap: 20px;
   font: 10px var(--mono);
-  color: #765a7c;
+  color: #648171;
 }
 .graduate-meta-list b {
   color: var(--ink);
@@ -1690,7 +1741,7 @@ button {
 }
 .prospectus-card {
   position: relative;
-  background: rgba(23, 9, 29, 0.7);
+  background: rgba(6, 51, 34, 0.7);
   border: 1px solid var(--line);
   padding: 26px 28px 24px;
   display: flex;
@@ -1718,9 +1769,9 @@ button {
 }
 .prospectus-badge-file {
   font: 8px var(--mono);
-  background: rgba(244, 126, 174, 0.15);
+  background: rgba(120, 184, 149, 0.15);
   color: var(--pink);
-  border: 1px solid rgba(244, 126, 174, 0.3);
+  border: 1px solid rgba(120, 184, 149, 0.3);
   padding: 2px 6px;
 }
 .prospectus-card h3 {
@@ -1741,7 +1792,7 @@ button {
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
   padding: 10px 12px;
-  background: rgba(33, 16, 39, 0.6);
+  background: rgba(11, 69, 49, 0.6);
   border: 1px dashed var(--line);
   margin-bottom: 20px;
   font: 9px var(--mono);
@@ -1812,7 +1863,7 @@ button {
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(14, 5, 18, 0.88);
+  background: rgba(6, 51, 34, 0.88);
   backdrop-filter: blur(8px);
 }
 .modal-dialog {
@@ -1824,10 +1875,10 @@ button {
   display: flex;
   flex-direction: column;
   background: var(--ink-soft);
-  border: 1px solid rgba(245, 236, 248, 0.35);
+  border: 1px solid rgba(244, 246, 241, 0.35);
   box-shadow:
-    12px 12px 0 rgba(23, 9, 29, 0.8),
-    0 0 40px rgba(156, 98, 239, 0.2);
+    12px 12px 0 rgba(6, 51, 34, 0.8),
+    0 0 40px rgba(45, 128, 96, 0.2);
   overflow: hidden;
   animation: modalIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1891,7 +1942,7 @@ button {
   gap: 12px;
   margin-bottom: 20px;
   padding: 12px;
-  background: rgba(23, 9, 29, 0.6);
+  background: rgba(6, 51, 34, 0.6);
   border: 1px solid var(--line);
   font: 10px var(--mono);
 }
@@ -2102,12 +2153,7 @@ button {
   .hero-art {
     padding: 10px;
   }
-  .pixel-stamp {
-    right: -17px;
-    width: 48px;
-    height: 48px;
-    font-size: 7px;
-  }
+
   .section-pad {
     padding: 85px 7vw;
   }
@@ -2355,9 +2401,9 @@ button {
   width: 100%;
   max-width: 430px;
   justify-self: end;
-  border: 1px solid rgba(245, 236, 248, 0.3);
-  background: rgba(27, 11, 34, 0.88);
-  box-shadow: 9px 9px 0 rgba(244, 126, 174, 0.16);
+  border: 1px solid rgba(244, 246, 241, 0.3);
+  background: rgba(6, 51, 34, 0.88);
+  box-shadow: 9px 9px 0 rgba(120, 184, 149, 0.16);
 }
 .contact-panel-bar,
 .contact-panel-footer {
@@ -2433,7 +2479,7 @@ button {
   min-height: 36px;
   padding: 0 16px;
   border-top: 1px solid var(--line);
-  color: #a28ea9;
+  color: #91a698;
   font-size: 8px;
 }
 .contact-location {
@@ -2534,7 +2580,7 @@ button {
   width: 100%;
   min-height: 48px;
   padding: 13px 14px;
-  border: 1px solid rgba(245, 236, 248, 0.28);
+  border: 1px solid rgba(244, 246, 241, 0.28);
   border-radius: 0;
   outline: none;
   background: var(--ink);
@@ -2548,7 +2594,7 @@ button {
 }
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: #8e7c95;
+  color: #91a698;
 }
 .contact-form input:focus,
 .contact-form textarea:focus {
@@ -2653,15 +2699,15 @@ button {
     linear-gradient(
       135deg,
       transparent 22%,
-      rgba(156, 98, 239, 0.15) 22%,
-      rgba(156, 98, 239, 0.15) 23%,
+      rgba(45, 128, 96, 0.15) 22%,
+      rgba(45, 128, 96, 0.15) 23%,
       transparent 23%
     ),
     linear-gradient(
       45deg,
       transparent 70%,
-      rgba(244, 126, 174, 0.13) 70%,
-      rgba(244, 126, 174, 0.13) 71%,
+      rgba(120, 184, 149, 0.13) 70%,
+      rgba(120, 184, 149, 0.13) 71%,
       transparent 71%
     );
   content: "";
@@ -2726,8 +2772,8 @@ button {
 }
 .faculty-terminal {
   border: 1px solid var(--line);
-  background: rgba(23, 9, 29, 0.82);
-  box-shadow: 18px 18px 0 rgba(156, 98, 239, 0.08);
+  background: rgba(6, 51, 34, 0.82);
+  box-shadow: 18px 18px 0 rgba(45, 128, 96, 0.08);
 }
 .faculty-terminal .terminal-bar {
   display: flex;
@@ -2789,7 +2835,7 @@ button {
   align-items: center;
   gap: 12px;
   margin: 28px 0 0;
-  color: #9b829f;
+  color: #91a698;
   font: 10px/1.6 var(--mono);
 }
 .interest-tags {
@@ -2802,8 +2848,8 @@ button {
 }
 .interest-tags li {
   padding: 3px 8px;
-  border: 1px solid rgba(156, 98, 239, 0.35);
-  background: rgba(156, 98, 239, 0.14);
+  border: 1px solid rgba(45, 128, 96, 0.35);
+  background: rgba(45, 128, 96, 0.14);
   font: 9px var(--mono);
 }
 
@@ -2822,7 +2868,7 @@ button {
   box-shadow: 5px 5px 0 var(--ink);
 }
 .faculty-leadership article > span {
-  color: #8751c7;
+  color: #1f6b4a;
   font: 9px var(--mono);
 }
 .faculty-leadership h3 {
@@ -2832,7 +2878,7 @@ button {
 }
 .faculty-leadership p {
   margin: 0;
-  color: #66556c;
+  color: #55705f;
   font: 12px var(--mono);
 }
 .faculty-roster {
@@ -2843,7 +2889,7 @@ button {
 }
 .faculty-roster-department {
   margin: 0 0 6px;
-  color: #8751c7;
+  color: #1f6b4a;
   font: 10px var(--mono);
   text-transform: uppercase;
 }
@@ -2865,8 +2911,8 @@ button {
 .faculty-table th,
 .faculty-table td {
   padding: 12px 14px;
-  border-right: 1px solid rgba(23, 9, 29, 0.16);
-  border-bottom: 1px solid rgba(23, 9, 29, 0.16);
+  border-right: 1px solid rgba(6, 51, 34, 0.16);
+  border-bottom: 1px solid rgba(6, 51, 34, 0.16);
   text-align: left;
   vertical-align: top;
 }
@@ -2880,7 +2926,7 @@ button {
   font-weight: 700;
 }
 .faculty-table tbody tr:nth-child(even) {
-  background: #f6edf9;
+  background: #f4f6f1;
 }
 @media (max-width: 900px) {
   .faculty-leadership {
@@ -2892,20 +2938,20 @@ button {
   color: var(--ink);
 }
 .directory .section-kicker {
-  color: #765a7c;
+  color: #648171;
 }
 .directory .section-heading h2 span {
-  color: #8751c7;
+  color: #1f6b4a;
 }
 .directory .section-heading > p {
-  color: #66556c;
+  color: #55705f;
 }
 .directory-tools {
   display: grid;
   gap: 18px;
   margin-bottom: 34px;
   padding-bottom: 24px;
-  border-bottom: 1px solid rgba(23, 9, 29, 0.22);
+  border-bottom: 1px solid rgba(6, 51, 34, 0.22);
 }
 .directory-search {
   display: grid;
@@ -2913,7 +2959,7 @@ button {
   max-width: 460px;
 }
 .directory-search label {
-  color: #765a7c;
+  color: #648171;
   font: 10px var(--mono);
 }
 .directory-search input {
@@ -2928,7 +2974,7 @@ button {
   font: 14px var(--display);
 }
 .directory-search input:focus {
-  border-color: #8751c7;
+  border-color: #1f6b4a;
   box-shadow: 4px 4px 0 var(--pink);
 }
 .filter-chips {
@@ -2938,7 +2984,7 @@ button {
 }
 .chip {
   padding: 8px 14px;
-  border: 1px solid rgba(23, 9, 29, 0.35);
+  border: 1px solid rgba(6, 51, 34, 0.35);
   background: transparent;
   color: var(--ink);
   font: 10px var(--mono);
@@ -2950,7 +2996,7 @@ button {
 }
 .chip:hover {
   border-color: var(--ink);
-  background: rgba(23, 9, 29, 0.06);
+  background: rgba(6, 51, 34, 0.06);
 }
 .chip.is-active {
   border-color: var(--ink);
@@ -2959,7 +3005,7 @@ button {
 }
 .directory-count {
   margin: 0;
-  color: #765a7c;
+  color: #648171;
   font: 10px var(--mono);
 }
 .faculty-grid {
@@ -2982,7 +3028,7 @@ button {
 }
 .faculty-card:hover {
   transform: translate(-3px, -3px);
-  box-shadow: 9px 9px 0 #8751c7;
+  box-shadow: 9px 9px 0 #1f6b4a;
 }
 .faculty-card[hidden] {
   display: none;
@@ -2995,11 +3041,11 @@ button {
   overflow: hidden;
   border-bottom: 2px solid var(--ink);
   background:
-    linear-gradient(rgba(239, 193, 255, 0.1) 1px, transparent 1px) 0 0 / 14px
+    linear-gradient(rgba(181, 211, 107, 0.1) 1px, transparent 1px) 0 0 / 14px
       14px,
-    linear-gradient(90deg, rgba(239, 193, 255, 0.1) 1px, transparent 1px) 0 0 /
+    linear-gradient(90deg, rgba(181, 211, 107, 0.1) 1px, transparent 1px) 0 0 /
       14px 14px,
-    #3a1748;
+    #0b4531;
 }
 .faculty-photo img {
   width: 100%;
@@ -3031,7 +3077,7 @@ button {
   padding: 20px 20px 18px;
 }
 .faculty-field {
-  color: #8751c7;
+  color: #1f6b4a;
   font: 9px var(--mono);
 }
 .faculty-name {
@@ -3042,7 +3088,7 @@ button {
 }
 .faculty-position {
   margin: 0 0 10px;
-  color: #66556c;
+  color: #55705f;
   font-size: 13px;
 }
 .faculty-expertise {
@@ -3052,7 +3098,7 @@ button {
 }
 .faculty-more {
   margin-top: auto;
-  border-top: 1px solid rgba(23, 9, 29, 0.18);
+  border-top: 1px solid rgba(6, 51, 34, 0.18);
 }
 .faculty-more summary {
   display: flex;
@@ -3067,7 +3113,7 @@ button {
   display: none;
 }
 .faculty-more summary::after {
-  color: #8751c7;
+  color: #1f6b4a;
   font-size: 16px;
   content: "+";
   transition: transform 0.25s;
@@ -3077,23 +3123,23 @@ button {
 }
 .faculty-more p {
   margin: 8px 0 0;
-  color: #66556c;
+  color: #55705f;
   font-size: 12px;
   line-height: 1.7;
 }
 .directory .interest-tags li {
-  border-color: rgba(135, 81, 199, 0.4);
-  background: rgba(135, 81, 199, 0.1);
+  border-color: rgba(45, 128, 96, 0.4);
+  background: rgba(45, 128, 96, 0.1);
   color: var(--ink);
 }
 .directory-empty {
   padding: 40px 0;
-  color: #66556c;
+  color: #55705f;
   font: 12px var(--mono);
   text-align: center;
 }
 .directory .placeholder-note {
-  color: #786981;
+  color: #6f8275;
 }
 
 /* ---------- 02 STAFF ---------- */
@@ -3102,7 +3148,7 @@ button {
 }
 .staff .section-kicker,
 .research .section-kicker {
-  color: #b6a1be;
+  color: #91a698;
 }
 .staff-grid {
   display: grid;
@@ -3170,7 +3216,7 @@ button {
 
 /* ---------- 03 RESEARCH ---------- */
 .research {
-  background: #24122c;
+  background: #0b4531;
 }
 .research .section-heading h2 span {
   color: var(--acid);
@@ -3187,7 +3233,7 @@ button {
   gap: 8px;
   padding: 10px 16px;
   border: 1px solid var(--line);
-  background: rgba(245, 236, 248, 0.05);
+  background: rgba(244, 246, 241, 0.05);
   color: var(--muted);
   font: 11px var(--mono);
   cursor: pointer;

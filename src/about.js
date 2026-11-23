@@ -29,7 +29,10 @@
 
   /* ---------- split headlines into animated characters ---------- */
   const splitChars = (root) => {
-    root.setAttribute("aria-label", root.textContent.replace(/\s+/g, " ").trim());
+    root.setAttribute(
+      "aria-label",
+      root.textContent.replace(/\s+/g, " ").trim(),
+    );
     let index = 0;
 
     const walk = (node) => {
@@ -89,9 +92,7 @@
   /* ---------- animated counters ---------- */
   const counters = document.querySelectorAll("[data-count]");
   const format = (value, pad) =>
-    pad
-      ? String(value).padStart(pad, "0")
-      : value.toLocaleString("en-US");
+    pad ? String(value).padStart(pad, "0") : value.toLocaleString("en-US");
 
   onVisible(
     counters,
@@ -126,7 +127,7 @@
   const mosaic = document.querySelector("[data-mosaic]");
   if (mosaic) {
     const grid = mosaic.querySelector(".mosaic-cells");
-    const palette = ["#9c62ef", "#f47eae", "#d3ff7a", "#211027", "#8751c7"];
+    const palette = ["#063322", "#0b4531", "#2d8060", "#78b895", "#b5d36b"];
     const cells = [];
     for (let i = 0; i < 144; i++) {
       const cell = document.createElement("i");
@@ -140,8 +141,23 @@
     }
 
     const pct = document.querySelector(".load-pct");
+    const replayMosaic = () => {
+      mosaic.classList.remove("is-resolved");
+      cells.forEach((cell) => cell.classList.remove("blink"));
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => mosaic.classList.add("is-resolved"));
+      });
+    };
+
+    window.addEventListener("cics-logo-activate", replayMosaic);
+
     onVisible([mosaic], () => {
-      requestAnimationFrame(() => mosaic.classList.add("is-resolved"));
+      if (sessionStorage.getItem("cics-mosaic-replay") === "true") {
+        sessionStorage.removeItem("cics-mosaic-replay");
+        replayMosaic();
+      } else {
+        requestAnimationFrame(() => mosaic.classList.add("is-resolved"));
+      }
 
       if (pct && !reduceMotion) {
         const start = performance.now();
@@ -214,7 +230,10 @@
     if (timeline) {
       const line = window.innerHeight * 0.62;
       const rect = timeline.getBoundingClientRect();
-      const progress = Math.min(Math.max((line - rect.top) / rect.height, 0), 1);
+      const progress = Math.min(
+        Math.max((line - rect.top) / rect.height, 0),
+        1,
+      );
       timeline.style.setProperty("--progress", progress.toFixed(3));
       timelineItems.forEach((item) => {
         item.classList.toggle(
