@@ -1,3 +1,57 @@
+// Brand links trigger the mosaic reveal when they return to the About page.
+document.querySelectorAll(".brand").forEach((brand) => {
+  brand.addEventListener("click", () => {
+    sessionStorage.setItem("cics-mosaic-replay", "true");
+    window.dispatchEvent(new CustomEvent("cics-logo-activate"));
+  });
+});
+
+const logoFrame = document.querySelector(".logo-frame");
+if (logoFrame) {
+  const pixelGrid = logoFrame.querySelector(".logo-pixels");
+  const palette = ["#063322", "#0b4531", "#2d8060", "#78b895", "#b5d36b"];
+  const pixels = [];
+
+  for (let i = 0; i < 144; i++) {
+    const pixel = document.createElement("i");
+    pixel.style.setProperty(
+      "--pixel",
+      palette[Math.floor(Math.random() * palette.length)],
+    );
+    pixel.style.setProperty("--d", `${(Math.random() * 1.6).toFixed(2)}s`);
+    pixelGrid.append(pixel);
+    pixels.push(pixel);
+  }
+
+  const replayLogo = () => {
+    logoFrame.classList.remove("is-resolved");
+    pixels.forEach((pixel) => pixel.classList.remove("blink"));
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => logoFrame.classList.add("is-resolved"));
+    });
+  };
+
+  replayLogo();
+  window.addEventListener("cics-logo-activate", replayLogo);
+
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+  if (!reduceMotion) {
+    setTimeout(() => {
+      setInterval(() => {
+        if (document.hidden) return;
+        for (let n = 0; n < 3; n++) {
+          const pixel = pixels[Math.floor(Math.random() * pixels.length)];
+          pixel.classList.remove("blink");
+          void pixel.offsetWidth;
+          pixel.classList.add("blink");
+        }
+      }, 700);
+    }, 2200);
+  }
+}
+
 // Navigation Mobile Toggle
 const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".site-nav");
@@ -456,60 +510,188 @@ function triggerProspectusDownload(programName, programCode) {
     `<b>[SYSTEM]</b> Preparing <b>${programCode}</b> Prospectus (AY 2024-2025)...`,
   );
 
-  // Generate an authentic, structured syllabus checklist file
   setTimeout(() => {
-    const content = `================================================================================
-DE LA SALLE UNIVERSITY - DASMARIÑAS
-COLLEGE OF INFORMATION AND COMPUTER STUDIES (CICS)
-CURRICULUM PROSPECTUS & COURSE CHECKLIST
-================================================================================
-Program: ${programName}
-Code: ${programCode}
-Accreditation: CHED Center of Development / Level II PAASCU
-Format: Outcome-Based Education (OBE) Curriculum
-Academic Year: 2024 - 2025
+    const escapePdfText = (text) =>
+      String(text)
+        .replace(/[^\x20-\x7E]/g, "")
+        .replace(/\\/g, "\\\\")
+        .replace(/\(/g, "\\(")
+        .replace(/\)/g, "\\)");
 
-================================================================================
-PROGRAM SPECIFICATIONS & GRADUATION REQUIREMENTS
-================================================================================
-- Total Academic Units: 158 - 162 Units
-- General Education Core: 36 Units
-- Basic Computing Core: 18 Units
-- Professional Computing Courses: 63 Units
-- Track / Specialization Electives: 15 Units
-- Free & Interdisciplinary Electives: 6 Units
-- Capstone Project / Thesis: 6 Units
-- Industry Practicum / OJT: 480 Hours (6 Units)
-- Physical Education & NSTP: 14 Units
+    const programData = {
+      BSIT: {
+        credits: "162 Units",
+        compliance: "CHED CMO 25",
+        practicum: "480 Hours",
+      },
+      BSCS: {
+        credits: "158 Units",
+        compliance: "CHED CMO 25",
+        practicum: "480 Hours",
+      },
+      BSEMC: {
+        credits: "160 Units",
+        compliance: "CHED CMO 02",
+        practicum: "480 Hours",
+      },
+      MSIT: {
+        credits: "36 Units",
+        compliance: "Executive Modular",
+        practicum: "Master's Thesis",
+      },
+    };
+    const details = programData[programCode] || programData.BSIT;
 
-================================================================================
-CORE COMPETENCIES & GRADUATE ATTRIBUTES
-================================================================================
-1. Lasallian Character & Professional Integrity
-2. Technical Mastery in Cloud, Software, and Computing Systems
-3. Collaborative Agility & Communication Excellence
-4. Innovation & Technopreneurial Leadership
-5. Lifelong Inquiry & Continuous Learning
+    const requirements =
+      programCode === "MSIT"
+        ? [
+            ["Core graduate courses", "18 Units"],
+            ["Specialization electives", "6 Units"],
+            ["Research methods", "6 Units"],
+            ["Master's thesis", "6 Units"],
+          ]
+        : [
+            ["General education", "36 Units"],
+            ["Basic computing core", "18 Units"],
+            ["Professional computing", "63 Units"],
+            ["Track / specialization electives", "15 Units"],
+            ["Capstone / thesis", "6 Units"],
+            ["Industry practicum / OJT", "6 Units"],
+          ];
 
-For inquiries, contact:
-CICS Dean's Office / Department of Computer Studies
-De La Salle University-Dasmariñas, City of Dasmariñas, Cavite, Philippines
-Web: https://www.dlsud.edu.ph/ | Email: cics@dlsud.edu.ph
-================================================================================`;
+    const competencies = [
+      "Lasallian character and professional integrity",
+      "Technical mastery in computing systems",
+      "Collaborative communication and agility",
+      "Innovation and technopreneurial leadership",
+      "Lifelong inquiry and continuous learning",
+    ];
 
-    const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+    const commands = [
+      "0.024 0.200 0.127 rg",
+      "0 792 612 -792 re f",
+      "0.710 0.827 0.420 rg",
+      "54 706 504 5 re f",
+      "BT /F2 9 Tf 54 752 Td (DE LA SALLE UNIVERSITY-DASMARIÑAS) Tj ET",
+      "BT /F1 8 Tf 54 736 Td (COLLEGE OF INFORMATION AND COMPUTER STUDIES) Tj ET",
+
+      "1 1 1 rg",
+      "54 626 504 70 re f",
+      "0.024 0.200 0.127 rg",
+      `BT /F2 19 Tf 72 672 Td (${escapePdfText(programName)}) Tj ET`,
+      `BT /F1 9 Tf 72 648 Td (PROGRAM CODE: ${programCode}  |  ACADEMIC YEAR: 2024-2025) Tj ET`,
+
+      "0.710 0.827 0.420 rg",
+      "54 591 504 20 re f",
+      "0.024 0.200 0.127 rg",
+      "BT /F2 9 Tf 64 596 Td (PROGRAM PROFILE) Tj ET",
+
+      "0.024 0.200 0.127 rg",
+      "BT /F2 11 Tf 54 560 Td (Academic requirements) Tj ET",
+    ];
+
+    let y = 532;
+    requirements.forEach(([label, value], index) => {
+      commands.push(
+        index % 2 === 0 ? "0.96 0.97 0.95 rg" : "0.91 0.95 0.91 rg",
+      );
+      commands.push(`54 ${y - 6} 504 26 re f`);
+      commands.push("0.024 0.200 0.127 rg");
+      commands.push(
+        `BT /F1 9 Tf 64 ${y + 3} Td (${escapePdfText(label)}) Tj ET`,
+      );
+      commands.push(
+        `BT /F2 9 Tf 500 ${y + 3} Td (${escapePdfText(value)}) Tj ET`,
+      );
+      y -= 30;
+    });
+
+    commands.push("0.024 0.200 0.127 rg");
+    commands.push("BT /F2 11 Tf 54 338 Td (Core competencies) Tj ET");
+
+    let competencyY = 308;
+    competencies.forEach((item, index) => {
+      commands.push("0.710 0.827 0.420 rg");
+      commands.push(`54 ${competencyY - 4} 20 20 re f`);
+      commands.push("0.024 0.200 0.127 rg");
+      commands.push(
+        `BT /F2 8 Tf 60 ${competencyY + 2} Td (${index + 1}) Tj ET`,
+      );
+      commands.push(
+        `BT /F1 9 Tf 84 ${competencyY + 2} Td (${escapePdfText(item)}) Tj ET`,
+      );
+      competencyY -= 28;
+    });
+
+    commands.push("0.710 0.827 0.420 rg", "54 154 504 48 re f");
+    commands.push("0.024 0.200 0.127 rg");
+    commands.push("BT /F2 9 Tf 64 184 Td (CICS PROFILE) Tj ET");
+    commands.push(
+      `BT /F1 8 Tf 64 166 Td (TOTAL CREDITS: ${details.credits}) Tj ET`,
+    );
+    commands.push(
+      `BT /F1 8 Tf 230 166 Td (COMPLIANCE: ${details.compliance}) Tj ET`,
+    );
+    commands.push(
+      `BT /F1 8 Tf 430 166 Td (PRACTICUM: ${details.practicum}) Tj ET`,
+    );
+
+    commands.push("0.024 0.200 0.127 rg");
+    commands.push("BT /F1 8 Tf 54 128 Td (For inquiries) Tj ET");
+    commands.push(
+      "BT /F2 8 Tf 54 112 Td (CICS Dean's Office / Department of Computer Studies) Tj ET",
+    );
+    commands.push(
+      "BT /F1 8 Tf 54 96 Td (De La Salle University-Dasmarinas, Cavite, Philippines) Tj ET",
+    );
+    commands.push(
+      "BT /F1 8 Tf 54 80 Td (Web: www.dlsud.edu.ph  |  Email: cics@dlsud.edu.ph) Tj ET",
+    );
+
+    commands.push("0.024 0.200 0.127 rg", "54 58 504 1 re f");
+    commands.push(
+      "BT /F1 7 Tf 54 42 Td (DLSU-D CICS / CURRICULUM PROSPECTUS) Tj ET",
+    );
+    commands.push("BT /F1 7 Tf 510 42 Td (01 / 01) Tj ET");
+
+    const stream = commands.join("\n");
+    const pdfObjects = [];
+    pdfObjects[1] = "<< /Type /Catalog /Pages 2 0 R >>";
+    pdfObjects[2] = "<< /Type /Pages /Kids [5 0 R] /Count 1 >>";
+    pdfObjects[3] = "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>";
+    pdfObjects[4] =
+      "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>";
+    pdfObjects[5] =
+      "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>";
+    pdfObjects[6] = `<< /Length ${stream.length} >>\nstream\n${stream}\nendstream`;
+
+    let pdf = "%PDF-1.4\n";
+    const offsets = [0];
+    for (let id = 1; id <= 6; id++) {
+      offsets[id] = pdf.length;
+      pdf += `${id} 0 obj\n${pdfObjects[id]}\nendobj\n`;
+    }
+
+    const xrefOffset = pdf.length;
+    const xrefEntries = ["0000000000 65535 f "];
+    for (let id = 1; id <= 6; id++) {
+      xrefEntries.push(`${String(offsets[id]).padStart(10, "0")} 00000 n `);
+    }
+    pdf += `xref\n0 7\n${xrefEntries.join("\n")}\n`;
+    pdf += `trailer\n<< /Size 7 /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`;
+
+    const blob = new Blob([pdf], { type: "application/pdf" });
     const url = URL.createObjectURL(blob);
+    const filename = `DLSU-D_CICS_${programCode}_Curriculum_Prospectus.pdf`;
     const downloadAnchor = document.createElement("a");
     downloadAnchor.href = url;
-    downloadAnchor.download = `DLSU-D_CICS_${programCode}_Curriculum_Prospectus.txt`;
+    downloadAnchor.download = filename;
     document.body.appendChild(downloadAnchor);
     downloadAnchor.click();
     document.body.removeChild(downloadAnchor);
-    URL.revokeObjectURL(url);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
 
-    showToast(
-      `<b>[SUCCESS]</b> Downloaded <b>DLSU-D_CICS_${programCode}_Curriculum_Prospectus.txt</b>!`,
-    );
+    showToast(`<b>[SUCCESS]</b> Downloaded <b>${filename}</b>!`);
   }, 900);
 }
 
